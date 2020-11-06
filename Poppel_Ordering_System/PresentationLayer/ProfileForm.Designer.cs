@@ -1,6 +1,6 @@
 ﻿namespace Poppel_Ordering_System.PresentationLayer
 {
-    partial class Profile
+    partial class ProfileForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@
             this.txtSearchCust = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -118,9 +118,9 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(8, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 25);
+            this.label12.Size = new System.Drawing.Size(83, 25);
             this.label12.TabIndex = 1;
-            this.label12.Text = "Profile";
+            this.label12.Text = "Orders";
             // 
             // panel4
             // 
@@ -194,6 +194,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(812, 214);
             this.panel2.TabIndex = 6;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(577, 151);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 13);
+            this.label25.TabIndex = 20;
+            this.label25.Text = "-----------------";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(431, 151);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(58, 13);
+            this.label26.TabIndex = 19;
+            this.label26.Text = "Blacklisted";
             // 
             // label18
             // 
@@ -410,10 +428,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(743, 13);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(722, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.Size = new System.Drawing.Size(85, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Poppel";
             // 
@@ -425,24 +443,6 @@
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Search Customer:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(577, 151);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(58, 13);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "-----------------";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(431, 151);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(58, 13);
-            this.label26.TabIndex = 19;
-            this.label26.Text = "Blacklisted";
             // 
             // Profile
             // 

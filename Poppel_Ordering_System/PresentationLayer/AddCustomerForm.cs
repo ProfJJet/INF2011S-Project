@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Poppel_Ordering_System.PresentationLayer
 {
-    public partial class Profile : Form
+    public partial class AddCustomerForm : Form
     {
-        public Profile()
+        public AddCustomerForm()
         {
             InitializeComponent();
         }
-
     }
 }
