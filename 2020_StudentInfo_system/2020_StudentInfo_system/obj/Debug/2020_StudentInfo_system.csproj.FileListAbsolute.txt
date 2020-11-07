@@ -1,0 +1,37 @@
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe.config
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csprojResolveAssemblyReference.cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\_2020_StudentInfo_system.Properties.Resources.resources
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.GenerateResource.Cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.CoreCompileInputs.cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 2\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe.config
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\_2020_StudentInfo_system.Properties.Resources.resources
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.GenerateResource.Cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.CoreCompileInputs.cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 3 First\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\StudentInfo.mdf
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\StudentInfo_log.ldf
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe.config
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\_2020_StudentInfo_system.Properties.Resources.resources
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.GenerateResource.Cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.CoreCompileInputs.cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 4\Workshop 4\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\StudentInfo.mdf
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\StudentInfo_log.ldf
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe.config
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\bin\Debug\2020_StudentInfo_system.pdb
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\_2020_StudentInfo_system.Properties.Resources.resources
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.GenerateResource.Cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.csproj.CoreCompileInputs.cache
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.exe
+C:\Users\Salah\Desktop\2020_AfterCorona\INF2011S\Workshops\Workshop 5\Class Exercise\2020_StudentInfo_system\2020_StudentInfo_system\obj\Debug\2020_StudentInfo_system.pdb
