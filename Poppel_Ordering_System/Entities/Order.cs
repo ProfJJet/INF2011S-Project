@@ -12,7 +12,7 @@ namespace Poppel_Ordering_System.Entities
     {
         #region Order Fields
         private int orderNum;
-        private Customer customer;
+        private int customerNum;
         private DateTime datePlaced;
         private DateTime dateShipped;
         private String deliveryAddress;
@@ -27,10 +27,10 @@ namespace Poppel_Ordering_System.Entities
             get { return orderNum; }
             set { orderNum = value; }
         }
-        public Customer Customer
+        public int CustomerNum
         {
-            get { return customer; }
-            set { customer = value; }
+            get { return customerNum; }
+            set { customerNum = value; }
         }
         public DateTime DatePlaced
         {
@@ -57,10 +57,10 @@ namespace Poppel_Ordering_System.Entities
         #endregion
 
         #region Constructors
-        public Order(int orderNum, Customer customer, DateTime datePlaced, DateTime dateShipped, String deliveryAddress, OrderStatus status)
+        public Order(int orderNum, int customerNum, DateTime datePlaced, DateTime dateShipped, String deliveryAddress, OrderStatus status)
         {
             this.OrderNum = orderNum;
-            this.Customer = customer;
+            this.CustomerNum = customerNum;
             this.DatePlaced = datePlaced;
             this.DateShipped = dateShipped;
             this.DeliveryAddress = deliveryAddress;
@@ -69,7 +69,7 @@ namespace Poppel_Ordering_System.Entities
         public Order()
         {
             this.OrderNum = 0;
-            this.Customer = null;
+            this.CustomerNum = 0;
             this.DatePlaced = DateTime.MinValue;
             this.DateShipped = DateTime.MinValue;
             this.DeliveryAddress = "";

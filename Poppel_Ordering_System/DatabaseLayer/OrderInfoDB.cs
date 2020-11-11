@@ -42,16 +42,12 @@ namespace Poppel_Ordering_System.DatabaseLayer
             {
                 order = new Order();
                 order.OrderNum = reader.GetInt32(0);
-                int customerNum = reader.GetInt32(1);
-//TODO: fix line below:
-                //order.Customer = FindCustomer(customerNum);
+                order.CustomerNum = reader.GetInt32(1); 
                 order.DatePlaced = reader.GetDateTime(2);
                 order.DateShipped = reader.GetDateTime(3);
                 order.DeliveryAddress = reader.GetString(4).Trim();
                 Enum.TryParse(reader.GetString(5).Trim(), out OrderStatus myStatus);
                 order.Status = myStatus;
-//TODO fix line below:
-                //private Collection<OrderItem> items = reader.GetInt32(4);
                 orders.Add(order);
             }
         }
