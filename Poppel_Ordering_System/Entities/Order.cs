@@ -17,7 +17,6 @@ namespace Poppel_Ordering_System.Entities
         private DateTime dateShipped;
         private String deliveryAddress;
         private OrderStatus status;
-        private Collection<OrderItem> items;
         #endregion
 
 
@@ -55,16 +54,10 @@ namespace Poppel_Ordering_System.Entities
             get { return status; }
             set { status = value; }
         }
-
-        public Collection<OrderItem> Items
-        {
-            get { return items; }
-            set { items = value; }
-        }
         #endregion
 
         #region Constructors
-        public Order(int orderNum, Customer customer, DateTime datePlaced, DateTime dateShipped, String deliveryAddress, OrderStatus status, Collection<OrderItem> items)
+        public Order(int orderNum, Customer customer, DateTime datePlaced, DateTime dateShipped, String deliveryAddress, OrderStatus status)
         {
             this.OrderNum = orderNum;
             this.Customer = customer;
@@ -72,7 +65,6 @@ namespace Poppel_Ordering_System.Entities
             this.DateShipped = dateShipped;
             this.DeliveryAddress = deliveryAddress;
             this.Status = status;
-            this.Items = items;
         }
         public Order()
         {
@@ -82,7 +74,6 @@ namespace Poppel_Ordering_System.Entities
             this.DateShipped = DateTime.MinValue;
             this.DeliveryAddress = "";
             this.Status = OrderStatus.New_Order;
-            this.Items = null;
         }
         #endregion
     }

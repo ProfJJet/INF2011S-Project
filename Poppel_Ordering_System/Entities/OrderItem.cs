@@ -10,6 +10,7 @@ namespace Poppel_Ordering_System.Entities
     {
         #region OrderItem Fields
         private int orderItemNum;
+        private int orderNum;
         private int productNum;
         private int quantity;
         #endregion
@@ -19,6 +20,11 @@ namespace Poppel_Ordering_System.Entities
         {
             get { return orderItemNum; }
             set { orderItemNum = value; }
+        }
+        public int OrderNum
+        {
+            get { return orderNum; }
+            set { orderNum = value; }
         }
 
         public int ProductNum
@@ -38,12 +44,14 @@ namespace Poppel_Ordering_System.Entities
         public OrderItem()
         {
             this.OrderItemNum = 0;
+            this.OrderNum = 0;
             this.ProductNum = 0;
             this.Quantity = 0;
         }
-        public OrderItem( int orderItemNum, int productNum, int quantity )
+        public OrderItem( int orderItemNum, int orderNum, int productNum, int quantity )
         {
             this.OrderItemNum = orderItemNum;
+            this.OrderNum = orderNum;
             this.ProductNum = productNum;
             this.Quantity = quantity;
         }

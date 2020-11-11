@@ -15,8 +15,8 @@ namespace Poppel_Ordering_System.DatabaseLayer
     {
         #region Fields
         string table1 = "Product";
-        string sql_SELECT1 = "SELECT * FROM Product";
         private Collection<Product> products;
+        private Collection<Product> expiredProducts;
         #endregion
 
         #region Property Methods
@@ -24,18 +24,23 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
             get { return products; }
         }
+        public Collection<Product> ExpiredProducts
+        {
+            get { return expiredProducts; }
+        }
         #endregion
 
         #region Constructor
         public ProductInfoDB(): base()
         {
             products = new Collection<Product>();
-            ReadDataFromTable(sql_SELECT1, table1);
+            ReadDataFromTable("SELECT * FROM Product", products);
+            ReadDataFromTable("SELECT * FROM Product WHERE Expiry < " + DateTime.Now + ";", expiredProducts);
         }
         #endregion
 
         #region Data Reader
-        public void FillProducts(SqlDataReader reader, string dataTable, Collection<Product> products)
+        public void FillProducts(SqlDataReader reader, Collection<Product> products)
         {
             Product product;
             while (reader.Read())
@@ -47,11 +52,12 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 product.Stock = reader.GetInt32(3);
                 product.Supplier = reader.GetString(4).Trim();
                 product.Description = reader.GetString(5).Trim();
+                product.Expiry = reader.GetDateTime(6);
                 products.Add(product);
             }
         }
 
-        private string ReadDataFromTable(string selectString, string table)
+        private string ReadDataFromTable(string selectString, Collection<Product> output)
         {
             SqlDataReader reader;
             SqlCommand command;
@@ -62,13 +68,15 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 cnMain.Open();
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
-                if (reader.HasRows) { FillProducts(reader, table, products); }
+                if (reader.HasRows) { FillProducts(reader, output); }
                 reader.Close();
                 cnMain.Close();
                 return "success";
             }
             catch (Exception ex) { return (ex.ToString()); }
         }
+
+
 
         #endregion
 

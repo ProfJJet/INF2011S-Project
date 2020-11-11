@@ -15,6 +15,7 @@ namespace Poppel_Ordering_System.Entities
         private int stock;
         private string supplier;
         private string description;
+        private DateTime expiry;
         // for now we'll skip th image - can always add later if we have excess time
         #endregion
 
@@ -55,10 +56,15 @@ namespace Poppel_Ordering_System.Entities
             get { return description; }
             set { description = value; }
         }
+        public DateTime Expiry
+        {
+            get { return expiry; }
+            set { expiry = value; }
+        }
         #endregion
         
         #region Constructors
-        public Product( int productNum, string name, float price, int stock, string supplier, string address, string creditStatus, int creditLimit, string description)
+        public Product( int productNum, string name, float price, int stock, string supplier, string address, string creditStatus, int creditLimit, string description, DateTime expiry)
         {
             this.ProductNum = productNum;
             this.Name = name;
@@ -66,6 +72,7 @@ namespace Poppel_Ordering_System.Entities
             this.Stock = stock;
             this.Supplier = supplier;
             this.Description = description;
+            this.Expiry = expiry;
         }
         public Product()
         {
@@ -75,6 +82,7 @@ namespace Poppel_Ordering_System.Entities
             this.Stock = 0;
             this.Supplier = "";
             this.Description = "";
+            this.Expiry = DateTime.MinValue;
         }
         #endregion
     }

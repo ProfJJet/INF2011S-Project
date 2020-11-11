@@ -42,8 +42,9 @@ namespace Poppel_Ordering_System.DatabaseLayer
             {
                 orderItem = new OrderItem();
                 orderItem.OrderItemNum = reader.GetInt32(0);
-                orderItem.ProductNum = reader.GetInt32(1);
-                orderItem.Quantity = reader.GetInt32(2);
+                orderItem.OrderNum = reader.GetInt32(1);
+                orderItem.ProductNum = reader.GetInt32(2);
+                orderItem.Quantity = reader.GetInt32(3);
                 orderItems.Add(orderItem);
             }
         }
