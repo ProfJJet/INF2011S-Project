@@ -77,5 +77,59 @@ namespace Poppel_Ordering_System.DatabaseLayer
 
         #endregion
 
+        #region CRUD methods
+        public string GetValueString(Order tempOrder)
+        {
+
+            string aStr = tempOrder.OrderNum + ", ' " + tempOrder.Customer.CustomerNum + " ' ," +
+             " ' " + tempOrder.DatePlaced + " ' ," + " ' " + tempOrder.DateShipped + " ' , " +
+             " ' " + tempOrder.DeliveryAddress + " ' , " + tempOrder.Status + " '";
+            return aStr;
+        }
+
+        public void DatabaseAdd(Order tempOrder)
+        {
+
+            string strSQL = "";
+            strSQL = "INSERT into Order(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + //Should it be DatePlaced?
+                "VALUES(" + GetValueString(tempOrder) + ")";
+
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+
+            foreach (OrderItem o in tempOrder.Items)
+            {
+                strSQL = "Insert into OrderMapper(OrderNum, OrderItemNum) + VALUES(" + tempOrder.OrderNum + ", " + o.OrderItemNum + ")";
+                UpdateDataSource(new SqlCommand(strSQL, cnMain));
+            }
+        }
+
+        public void DatabaseUpdateStatus(Order tempOrder)
+        {
+            string sqlString = "";
+
+            sqlString = "Update Order Set Status = '" + tempOrder.Status + "'," +
+                                   "WHERE (OrderNum = '" + tempOrder.OrderNum + "')";
+             
+            UpdateDataSource(new SqlCommand(sqlString, cnMain));
+        }
+
+        public void DatabaseDelete(Order tempOrder)
+        {
+            string sqlStr = "DELETE FROM Order WHERE OrderNum = '" + tempOrder.OrderNum + "'"; //delete from table Order
+
+            UpdateDataSource(new SqlCommand(sqlStr, cnMain));
+        }
+        #endregion
+
+        #region Methods
+        public Collection<Order> getCustomerOrders(Customer c)
+        {
+            String sql_GetCustOrders = "SELECT * FROM Order WHERE CustomerNum = " + c.CustomerNum + "";
+
+            ReadDataFromTable(sql_GetCustOrders, table1);
+
+            return orders;
+        }
+        #endregion
     }
 }

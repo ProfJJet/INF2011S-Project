@@ -69,8 +69,10 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\CustomerController.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderController.cs" />
     <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductController.cs" />
     <Compile Include="PoppelDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

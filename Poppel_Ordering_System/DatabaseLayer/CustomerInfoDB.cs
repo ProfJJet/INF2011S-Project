@@ -74,5 +74,44 @@ namespace Poppel_Ordering_System.DatabaseLayer
 
         #endregion
 
+        #region CRUD methods
+        public string GetValueString(Customer tempCust)
+        {
+
+            string aStr;
+            aStr = tempCust.CustomerNum + ", ' " + tempCust.Name + " ' ," +
+             " ' " + tempCust.Email + " ' ," +
+             " ' " + tempCust.PhoneNum + " ' , " +
+                              " ' " + tempCust.Address + " ' , " + tempCust.CreditStatus + " ' ," + tempCust.CreditLimit + 
+                              " ' ," + tempCust.Blacklisted + " '";
+            return aStr;
+        }
+
+        public void DatabaseAdd(Customer tempCust)
+        {
+
+            string strSQL = "";
+            strSQL = "INSERT into Customer(CustomerNum, Name, Email, PhoneNum, Address, CreditStatus, CreditLimit, BlackListed)" +
+                "VALUES(" + GetValueString(tempCust) + ")";
+
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+        }
+
+        public void DatabaseEdit(Customer tempCust)
+        {
+            string sqlString = "";
+
+            sqlString = "Update Customer Set Name = '" + tempCust.Name.Trim() + "'," +
+                              "Email = '" + tempCust.Email.Trim() + "'," +
+                              "PhoneNum = '" + tempCust.PhoneNum.Trim() + "'," +
+                              "Address = '" + tempCust.Address.Trim() + "'," +
+                              "CreditStatus = '" + tempCust.CreditStatus.Trim() + "'," +
+                              "CreditLimit = '" + tempCust.CreditLimit + "'," +
+                              "BlackListed = '" + tempCust.Blacklisted + "'," +
+                               "WHERE (CustomerNum = '" + tempCust.CustomerNum + "')";
+
+            UpdateDataSource(new SqlCommand(sqlString, cnMain));
+        }
+        #endregion
     }
 }
