@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Poppel_Ordering_System.Entities
 {
-    class CustomerController
+    public class CustomerController
     {
         #region Properties
         CustomerInfoDB custDB;
@@ -19,6 +19,10 @@ namespace Poppel_Ordering_System.Entities
         public Collection<Customer> AllCustomers
         {
             get { return customers; }
+        }
+        public int NextID
+        {
+            get { return customers.Last().CustomerNum + 1; }
         }
         #endregion
 
@@ -76,7 +80,7 @@ namespace Poppel_Ordering_System.Entities
             }
         }
 
-        public Customer FindByID(string IDvalue)
+        public Customer FindByCustNum(string IDvalue)
         {
             int position = 0;
             bool found = (IDvalue == customers[position].CustomerNum.ToString());

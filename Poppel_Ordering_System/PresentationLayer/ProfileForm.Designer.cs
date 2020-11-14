@@ -39,16 +39,15 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
+            this.CustBlackLabel = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnUpdateDetails = new System.Windows.Forms.Button();
+            this.CustStatusLabel = new System.Windows.Forms.Label();
+            this.CustCredLimLabel = new System.Windows.Forms.Label();
+            this.CustPhoneLabel = new System.Windows.Forms.Label();
+            this.CustAddressLabel = new System.Windows.Forms.Label();
+            this.CustNameLabel = new System.Windows.Forms.Label();
+            this.CustEmailLabel = new System.Windows.Forms.Label();
+            this.CustNumLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,10 +61,7 @@
             this.pnlHead = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnSearchCust = new System.Windows.Forms.Button();
-            this.txtSearchCust = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -172,16 +168,15 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label25);
+            this.panel2.Controls.Add(this.CustBlackLabel);
             this.panel2.Controls.Add(this.label26);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.btnUpdateDetails);
+            this.panel2.Controls.Add(this.CustStatusLabel);
+            this.panel2.Controls.Add(this.CustCredLimLabel);
+            this.panel2.Controls.Add(this.CustPhoneLabel);
+            this.panel2.Controls.Add(this.CustAddressLabel);
+            this.panel2.Controls.Add(this.CustNameLabel);
+            this.panel2.Controls.Add(this.CustEmailLabel);
+            this.panel2.Controls.Add(this.CustNumLabel);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
@@ -195,95 +190,86 @@
             this.panel2.Size = new System.Drawing.Size(812, 214);
             this.panel2.TabIndex = 6;
             // 
-            // label25
+            // CustBlackLabel
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(577, 151);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(58, 13);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "-----------------";
+            this.CustBlackLabel.AutoSize = true;
+            this.CustBlackLabel.Location = new System.Drawing.Point(577, 151);
+            this.CustBlackLabel.Name = "CustBlackLabel";
+            this.CustBlackLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustBlackLabel.TabIndex = 20;
+            this.CustBlackLabel.Text = "-----------------";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(431, 151);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(58, 13);
+            this.label26.Size = new System.Drawing.Size(61, 13);
             this.label26.TabIndex = 19;
-            this.label26.Text = "Blacklisted";
+            this.label26.Text = "Blacklisted:";
             // 
-            // label18
+            // CustStatusLabel
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(577, 85);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(58, 13);
-            this.label18.TabIndex = 18;
-            this.label18.Text = "-----------------";
+            this.CustStatusLabel.AutoSize = true;
+            this.CustStatusLabel.Location = new System.Drawing.Point(577, 85);
+            this.CustStatusLabel.Name = "CustStatusLabel";
+            this.CustStatusLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustStatusLabel.TabIndex = 18;
+            this.CustStatusLabel.Text = "-----------------";
             // 
-            // label19
+            // CustCredLimLabel
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(577, 119);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 13);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "-----------------";
+            this.CustCredLimLabel.AutoSize = true;
+            this.CustCredLimLabel.Location = new System.Drawing.Point(577, 119);
+            this.CustCredLimLabel.Name = "CustCredLimLabel";
+            this.CustCredLimLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustCredLimLabel.TabIndex = 17;
+            this.CustCredLimLabel.Text = "-----------------";
             // 
-            // label20
+            // CustPhoneLabel
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(577, 56);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(58, 13);
-            this.label20.TabIndex = 16;
-            this.label20.Text = "-----------------";
+            this.CustPhoneLabel.AutoSize = true;
+            this.CustPhoneLabel.Location = new System.Drawing.Point(577, 56);
+            this.CustPhoneLabel.Name = "CustPhoneLabel";
+            this.CustPhoneLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustPhoneLabel.TabIndex = 16;
+            this.CustPhoneLabel.Text = "-----------------";
             // 
-            // label17
+            // CustAddressLabel
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(196, 151);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 13);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "-----------------";
+            this.CustAddressLabel.AutoSize = true;
+            this.CustAddressLabel.Location = new System.Drawing.Point(196, 151);
+            this.CustAddressLabel.Name = "CustAddressLabel";
+            this.CustAddressLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustAddressLabel.TabIndex = 15;
+            this.CustAddressLabel.Text = "-----------------";
             // 
-            // label16
+            // CustNameLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(196, 85);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 13);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "-----------------";
+            this.CustNameLabel.AutoSize = true;
+            this.CustNameLabel.Location = new System.Drawing.Point(196, 85);
+            this.CustNameLabel.Name = "CustNameLabel";
+            this.CustNameLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustNameLabel.TabIndex = 14;
+            this.CustNameLabel.Text = "-----------------";
             // 
-            // label15
+            // CustEmailLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(196, 119);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(58, 13);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "-----------------";
+            this.CustEmailLabel.AutoSize = true;
+            this.CustEmailLabel.Location = new System.Drawing.Point(196, 119);
+            this.CustEmailLabel.Name = "CustEmailLabel";
+            this.CustEmailLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustEmailLabel.TabIndex = 13;
+            this.CustEmailLabel.Text = "-----------------";
             // 
-            // label14
+            // CustNumLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(196, 56);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "-----------------";
-            // 
-            // btnUpdateDetails
-            // 
-            this.btnUpdateDetails.Location = new System.Drawing.Point(657, 186);
-            this.btnUpdateDetails.Name = "btnUpdateDetails";
-            this.btnUpdateDetails.Size = new System.Drawing.Size(151, 25);
-            this.btnUpdateDetails.TabIndex = 11;
-            this.btnUpdateDetails.Text = "Update Customer Deails";
-            this.btnUpdateDetails.UseVisualStyleBackColor = true;
+            this.CustNumLabel.AutoSize = true;
+            this.CustNumLabel.Location = new System.Drawing.Point(196, 56);
+            this.CustNumLabel.Name = "CustNumLabel";
+            this.CustNumLabel.Size = new System.Drawing.Size(58, 13);
+            this.CustNumLabel.TabIndex = 12;
+            this.CustNumLabel.Text = "-----------------";
             // 
             // label11
             // 
@@ -335,9 +321,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(431, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "tel. no:";
+            this.label6.Text = "Phone Number:";
             // 
             // label5
             // 
@@ -382,10 +368,7 @@
             this.pnlHead.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHead.Controls.Add(this.picLogo);
             this.pnlHead.Controls.Add(this.label13);
-            this.pnlHead.Controls.Add(this.btnSearchCust);
-            this.pnlHead.Controls.Add(this.txtSearchCust);
             this.pnlHead.Controls.Add(this.label2);
-            this.pnlHead.Controls.Add(this.label1);
             this.pnlHead.Location = new System.Drawing.Point(12, 12);
             this.pnlHead.Name = "pnlHead";
             this.pnlHead.Size = new System.Drawing.Size(812, 80);
@@ -407,24 +390,6 @@
             this.label13.Size = new System.Drawing.Size(0, 13);
             this.label13.TabIndex = 4;
             // 
-            // btnSearchCust
-            // 
-            this.btnSearchCust.Location = new System.Drawing.Point(787, 50);
-            this.btnSearchCust.Name = "btnSearchCust";
-            this.btnSearchCust.Size = new System.Drawing.Size(20, 20);
-            this.btnSearchCust.TabIndex = 3;
-            this.btnSearchCust.UseVisualStyleBackColor = true;
-            // 
-            // txtSearchCust
-            // 
-            this.txtSearchCust.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSearchCust.Location = new System.Drawing.Point(640, 50);
-            this.txtSearchCust.Name = "txtSearchCust";
-            this.txtSearchCust.Size = new System.Drawing.Size(141, 20);
-            this.txtSearchCust.TabIndex = 2;
-            this.txtSearchCust.Text = "Customer no.";
-            this.txtSearchCust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -435,16 +400,7 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Poppel";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(543, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Search Customer:";
-            // 
-            // Profile
+            // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -454,8 +410,11 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlHead);
-            this.Name = "Profile";
+            this.Name = "ProfileForm";
             this.Text = "Profile";
+            this.Activated += new System.EventHandler(this.ProfileForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProfileForm_FormClosed);
+            this.Load += new System.EventHandler(this.ProfileForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -485,14 +444,13 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnUpdateDetails;
+        private System.Windows.Forms.Label CustStatusLabel;
+        private System.Windows.Forms.Label CustCredLimLabel;
+        private System.Windows.Forms.Label CustPhoneLabel;
+        private System.Windows.Forms.Label CustAddressLabel;
+        private System.Windows.Forms.Label CustNameLabel;
+        private System.Windows.Forms.Label CustEmailLabel;
+        private System.Windows.Forms.Label CustNumLabel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -506,11 +464,8 @@
         private System.Windows.Forms.Panel pnlHead;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnSearchCust;
-        private System.Windows.Forms.TextBox txtSearchCust;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label CustBlackLabel;
         private System.Windows.Forms.Label label26;
     }
 }

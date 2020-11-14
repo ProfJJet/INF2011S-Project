@@ -31,24 +31,23 @@
             this.pnlHead = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnSearchCust = new System.Windows.Forms.Button();
-            this.txtSearchCust = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.CustCredLimTB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddCust = new System.Windows.Forms.Button();
+            this.CustNumLabel = new System.Windows.Forms.Label();
+            this.CustPhoneTB = new System.Windows.Forms.TextBox();
+            this.CustAddressTB = new System.Windows.Forms.TextBox();
+            this.CustEmailTB = new System.Windows.Forms.TextBox();
+            this.CustNameTB = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.lblCustNo = new System.Windows.Forms.Label();
-            this.btnAddCust = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -66,10 +65,7 @@
             this.pnlHead.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHead.Controls.Add(this.picLogo);
             this.pnlHead.Controls.Add(this.label13);
-            this.pnlHead.Controls.Add(this.btnSearchCust);
-            this.pnlHead.Controls.Add(this.txtSearchCust);
             this.pnlHead.Controls.Add(this.label2);
-            this.pnlHead.Controls.Add(this.label1);
             this.pnlHead.Location = new System.Drawing.Point(2, 12);
             this.pnlHead.Name = "pnlHead";
             this.pnlHead.Size = new System.Drawing.Size(812, 80);
@@ -91,24 +87,6 @@
             this.label13.Size = new System.Drawing.Size(0, 13);
             this.label13.TabIndex = 4;
             // 
-            // btnSearchCust
-            // 
-            this.btnSearchCust.Location = new System.Drawing.Point(787, 50);
-            this.btnSearchCust.Name = "btnSearchCust";
-            this.btnSearchCust.Size = new System.Drawing.Size(20, 20);
-            this.btnSearchCust.TabIndex = 3;
-            this.btnSearchCust.UseVisualStyleBackColor = true;
-            // 
-            // txtSearchCust
-            // 
-            this.txtSearchCust.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSearchCust.Location = new System.Drawing.Point(640, 50);
-            this.txtSearchCust.Name = "txtSearchCust";
-            this.txtSearchCust.Size = new System.Drawing.Size(141, 20);
-            this.txtSearchCust.TabIndex = 2;
-            this.txtSearchCust.Text = "Customer no.";
-            this.txtSearchCust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -118,15 +96,6 @@
             this.label2.Size = new System.Drawing.Size(85, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Poppel";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(543, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Search Customer:";
             // 
             // panel1
             // 
@@ -149,12 +118,14 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.CustCredLimTB);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnAddCust);
-            this.panel2.Controls.Add(this.lblCustNo);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.CustNumLabel);
+            this.panel2.Controls.Add(this.CustPhoneTB);
+            this.panel2.Controls.Add(this.CustAddressTB);
+            this.panel2.Controls.Add(this.CustEmailTB);
+            this.panel2.Controls.Add(this.CustNameTB);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
@@ -165,10 +136,74 @@
             this.panel2.Size = new System.Drawing.Size(812, 349);
             this.panel2.TabIndex = 7;
             // 
+            // CustCredLimTB
+            // 
+            this.CustCredLimTB.Location = new System.Drawing.Point(282, 260);
+            this.CustCredLimTB.Name = "CustCredLimTB";
+            this.CustCredLimTB.Size = new System.Drawing.Size(203, 20);
+            this.CustCredLimTB.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(50, 263);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Credit Limit:";
+            // 
+            // btnAddCust
+            // 
+            this.btnAddCust.Location = new System.Drawing.Point(53, 299);
+            this.btnAddCust.Name = "btnAddCust";
+            this.btnAddCust.Size = new System.Drawing.Size(164, 33);
+            this.btnAddCust.TabIndex = 23;
+            this.btnAddCust.Text = "Add Customer";
+            this.btnAddCust.UseVisualStyleBackColor = true;
+            this.btnAddCust.Click += new System.EventHandler(this.btnAddCust_Click);
+            // 
+            // CustNumLabel
+            // 
+            this.CustNumLabel.AutoSize = true;
+            this.CustNumLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CustNumLabel.Location = new System.Drawing.Point(279, 40);
+            this.CustNumLabel.Name = "CustNumLabel";
+            this.CustNumLabel.Size = new System.Drawing.Size(43, 13);
+            this.CustNumLabel.TabIndex = 20;
+            this.CustNumLabel.Text = "------------";
+            // 
+            // CustPhoneTB
+            // 
+            this.CustPhoneTB.Location = new System.Drawing.Point(282, 219);
+            this.CustPhoneTB.Name = "CustPhoneTB";
+            this.CustPhoneTB.Size = new System.Drawing.Size(203, 20);
+            this.CustPhoneTB.TabIndex = 19;
+            // 
+            // CustAddressTB
+            // 
+            this.CustAddressTB.Location = new System.Drawing.Point(282, 172);
+            this.CustAddressTB.Name = "CustAddressTB";
+            this.CustAddressTB.Size = new System.Drawing.Size(203, 20);
+            this.CustAddressTB.TabIndex = 18;
+            // 
+            // CustEmailTB
+            // 
+            this.CustEmailTB.Location = new System.Drawing.Point(282, 124);
+            this.CustEmailTB.Name = "CustEmailTB";
+            this.CustEmailTB.Size = new System.Drawing.Size(203, 20);
+            this.CustEmailTB.TabIndex = 17;
+            // 
+            // CustNameTB
+            // 
+            this.CustNameTB.Location = new System.Drawing.Point(282, 76);
+            this.CustNameTB.Name = "CustNameTB";
+            this.CustNameTB.Size = new System.Drawing.Size(203, 20);
+            this.CustNameTB.TabIndex = 16;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(50, 194);
+            this.label11.Location = new System.Drawing.Point(50, 175);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 13);
             this.label11.TabIndex = 15;
@@ -186,7 +221,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(50, 139);
+            this.label7.Location = new System.Drawing.Point(50, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 13);
             this.label7.TabIndex = 13;
@@ -195,11 +230,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 249);
+            this.label6.Location = new System.Drawing.Point(50, 222);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "tel. no:";
+            this.label6.Text = "Phone Number:";
             // 
             // label5
             // 
@@ -209,53 +244,6 @@
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Customer No:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(282, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 20);
-            this.textBox1.TabIndex = 16;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(282, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(203, 20);
-            this.textBox2.TabIndex = 17;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(282, 191);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(203, 20);
-            this.textBox3.TabIndex = 18;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(282, 246);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(203, 20);
-            this.textBox4.TabIndex = 19;
-            // 
-            // lblCustNo
-            // 
-            this.lblCustNo.AutoSize = true;
-            this.lblCustNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblCustNo.Location = new System.Drawing.Point(279, 40);
-            this.lblCustNo.Name = "lblCustNo";
-            this.lblCustNo.Size = new System.Drawing.Size(43, 13);
-            this.lblCustNo.TabIndex = 20;
-            this.lblCustNo.Text = "------------";
-            // 
-            // btnAddCust
-            // 
-            this.btnAddCust.Location = new System.Drawing.Point(53, 301);
-            this.btnAddCust.Name = "btnAddCust";
-            this.btnAddCust.Size = new System.Drawing.Size(164, 33);
-            this.btnAddCust.TabIndex = 21;
-            this.btnAddCust.Text = "Add Customer";
-            this.btnAddCust.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -316,6 +304,9 @@
             this.Controls.Add(this.pnlHead);
             this.Name = "AddCustomerForm";
             this.Text = "AddCustomerForm";
+            this.Activated += new System.EventHandler(this.AddCustomerForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddCustomerForm_FormClosed);
+            this.Load += new System.EventHandler(this.AddCustomerForm_Load);
             this.pnlHead.ResumeLayout(false);
             this.pnlHead.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
@@ -334,10 +325,7 @@
         private System.Windows.Forms.Panel pnlHead;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnSearchCust;
-        private System.Windows.Forms.TextBox txtSearchCust;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
@@ -347,15 +335,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddCust;
-        private System.Windows.Forms.Label lblCustNo;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label CustNumLabel;
+        private System.Windows.Forms.TextBox CustPhoneTB;
+        private System.Windows.Forms.TextBox CustAddressTB;
+        private System.Windows.Forms.TextBox CustEmailTB;
+        private System.Windows.Forms.TextBox CustNameTB;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox CustCredLimTB;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -79,11 +79,14 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
 
             string aStr;
-            aStr = tempCust.CustomerNum + ", ' " + tempCust.Name + " ' ," +
-             " ' " + tempCust.Email + " ' ," +
-             " ' " + tempCust.PhoneNum + " ' , " +
-                              " ' " + tempCust.Address + " ' , " + tempCust.CreditStatus + " ' ," + tempCust.CreditLimit + 
-                              " ' ," + tempCust.Blacklisted + " '";
+            aStr = tempCust.CustomerNum +
+                ", '" + tempCust.Name + "', " +
+                " '" + tempCust.Email + "', " +
+                " '" + tempCust.PhoneNum + "', " +
+                " '" + tempCust.Address + " ', " +
+                " '" + tempCust.CreditStatus + "', " +
+                tempCust.CreditLimit + ", " +
+                Convert.ToString(tempCust.Blacklisted ? 1 : 0);
             return aStr;
         }
 
@@ -91,9 +94,10 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
 
             string strSQL = "";
-            strSQL = "INSERT into Customer(CustomerNum, Name, Email, PhoneNum, Address, CreditStatus, CreditLimit, BlackListed)" +
-                "VALUES(" + GetValueString(tempCust) + ")";
+            strSQL = "INSERT INTO Customer (CustomerNum, Name, Email, PhoneNum, Address, CreditStatus, CreditLimit, BlackListed)" +
+                "VALUES ( " + GetValueString(tempCust) + ")";
 
+            Console.WriteLine(strSQL);
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
         }
 
