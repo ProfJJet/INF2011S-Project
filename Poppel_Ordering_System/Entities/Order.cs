@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Poppel_Ordering_System.Entities
 {
-    enum OrderStatus { New_Order, On_Hold, Shipped, Delivered, Closed }
+    enum OrderStatus { New_Order, On_Hold, Invoiced, Shipped, Delivered, Closed }
+    enum OrderChangeType { Status, Item}
     class Order
     {
         #region Order Fields
@@ -18,7 +19,6 @@ namespace Poppel_Ordering_System.Entities
         private String deliveryAddress;
         private OrderStatus status;
         #endregion
-
 
         #region Order Property Methods
 
@@ -75,6 +75,10 @@ namespace Poppel_Ordering_System.Entities
             this.DeliveryAddress = "";
             this.Status = OrderStatus.New_Order;
         }
+        #endregion
+
+        #region Methods
+            
         #endregion
     }
 }

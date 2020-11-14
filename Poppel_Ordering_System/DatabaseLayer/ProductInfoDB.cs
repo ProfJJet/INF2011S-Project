@@ -80,5 +80,41 @@ namespace Poppel_Ordering_System.DatabaseLayer
 
         #endregion
 
+        #region CRUD methods
+        public string GetValueString(Product tempProd)
+        {
+
+            string aStr;
+            aStr = tempProd.ProductNum + ", ' " + tempProd.Name + " ' ," +
+             " ' " + tempProd.Price + " ' ," +
+             " ' " + tempProd.Stock + " ' , " +
+             " ' " + tempProd.Supplier + " ' , " + tempProd.Description + " '";
+            return aStr;
+        }
+
+        public void DatabaseAdd(Product tempProd)
+        {
+
+            string strSQL = "";
+            strSQL = "INSERT into Product(ProductNum, Name, Price, Stock, Supplier, Description)" +
+                "VALUES(" + GetValueString(tempProd) + ")";
+
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+        }
+
+        public void DatabaseEdit(Product tempProd)
+        {
+            string sqlString = "";
+
+            sqlString = "Update Product Set Name = '" + tempProd.Name.Trim() + "'," +
+                              "Price = '" + tempProd.Price + "'," +
+                              "Stock = '" + tempProd.Stock + "'," +
+                              "Suplier = '" + tempProd.Supplier.Trim() + "'," +
+                              "Description = '" + tempProd.Description.Trim() + "'," +
+                               "WHERE (ProductNum = '" + tempProd.ProductNum + "')";
+
+            UpdateDataSource(new SqlCommand(sqlString, cnMain));
+        }
+        #endregion
     }
 }

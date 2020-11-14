@@ -35,3 +35,5 @@ C:\Users\jj\Desktop\Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering_Sys
 C:\Users\jj\Desktop\Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering_System.pdb
 C:\Users\jj\Desktop\Project\Poppel_Ordering_System\bin\Debug\PoppelDB.mdf
 C:\Users\jj\Desktop\Project\Poppel_Ordering_System\bin\Debug\PoppelDB_log.ldf
+C:\Users\User\Documents\GitHub\INF2011S-Project\Poppel_Ordering_System\bin\Debug\PoppelDB.mdf
+C:\Users\User\Documents\GitHub\INF2011S-Project\Poppel_Ordering_System\bin\Debug\PoppelDB_log.ldf
