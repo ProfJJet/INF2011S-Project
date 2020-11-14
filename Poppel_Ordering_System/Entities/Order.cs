@@ -17,6 +17,7 @@ namespace Poppel_Ordering_System.Entities
         private DateTime datePlaced;
         private DateTime dateShipped;
         private String deliveryAddress;
+        private Collection<OrderItem> items;
         private OrderStatus status;
         #endregion
 
@@ -53,6 +54,12 @@ namespace Poppel_Ordering_System.Entities
         {
             get { return status; }
             set { status = value; }
+        }
+
+        public Collection<OrderItem> OrderItems
+        {
+            get { return items; }
+            set { items = value; }
         }
         #endregion
 

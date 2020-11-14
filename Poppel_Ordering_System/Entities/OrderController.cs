@@ -39,7 +39,7 @@ namespace Poppel_Ordering_System.Entities
             orders.Add(o);
             orderDB.DatabaseAdd(o);
 
-            foreach (OrderItem item in o.Items)
+            foreach (OrderItem item in o.OrderItems)
             {
                 itemDB.DatabaseAdd(o, item);
             }
@@ -55,7 +55,7 @@ namespace Poppel_Ordering_System.Entities
             {
                 if (orders[ordInd].Status < OrderStatus.Invoiced)
                 {
-                    foreach(OrderItem item in o.Items)
+                    foreach(OrderItem item in o.OrderItems)
                     {
                         itemDB.DatabaseEdit(item);
 

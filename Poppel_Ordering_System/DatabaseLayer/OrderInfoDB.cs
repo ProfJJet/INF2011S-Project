@@ -77,7 +77,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
         public string GetValueString(Order tempOrder)
         {
 
-            string aStr = tempOrder.OrderNum + ", ' " + tempOrder.Customer.CustomerNum + " ' ," +
+            string aStr = tempOrder.OrderNum + ", ' " + tempOrder.CustomerNum + " ' ," +
              " ' " + tempOrder.DatePlaced + " ' ," + " ' " + tempOrder.DateShipped + " ' , " +
              " ' " + tempOrder.DeliveryAddress + " ' , " + tempOrder.Status + " '";
             return aStr;

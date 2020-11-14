@@ -21,6 +21,7 @@ namespace Poppel_Ordering_System.Entities
             get { return orderItemNum; }
             set { orderItemNum = value; }
         }
+
         public int OrderNum
         {
             get { return orderNum; }
