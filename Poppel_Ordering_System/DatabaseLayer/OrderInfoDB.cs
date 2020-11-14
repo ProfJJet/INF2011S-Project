@@ -14,8 +14,8 @@ namespace Poppel_Ordering_System.DatabaseLayer
     class OrderInfoDB:DB
     {
         #region Fields
-        string table1 = "Order";
-        string sql_SELECT1 = "SELECT * FROM Order";
+        string table1 = "Orders";
+        string sql_SELECT1 = "SELECT * FROM Orders";
         private Collection<Order> orders;
         #endregion
 
@@ -91,16 +91,10 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
 
             string strSQL = "";
-            strSQL = "INSERT into Order(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + //Should it be DatePlaced?
+            strSQL = "INSERT into Orders(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + //Should it be DatePlaced?
                 "VALUES(" + GetValueString(tempOrder) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
-
-            foreach (OrderItem o in tempOrder.Items)
-            {
-                strSQL = "Insert into OrderMapper(OrderNum, OrderItemNum) + VALUES(" + tempOrder.OrderNum + ", " + o.OrderItemNum + ")";
-                UpdateDataSource(new SqlCommand(strSQL, cnMain));
-            }
         }
 
         public void DatabaseUpdateStatus(Order tempOrder)

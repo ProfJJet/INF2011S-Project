@@ -70,20 +70,20 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region CRUD methods
-        public string GetValueString(OrderItem tempItem)
+        public string GetValueString(Order tempOrder, OrderItem tempItem)
         {
 
-            string aStr = tempItem.OrderItemNum + ", ' " + tempItem.ProductNum + " ' ," +
+            string aStr = tempItem.OrderItemNum + ", ' "+ tempOrder.OrderNum + ", '" + tempItem.ProductNum + " ' ," +
              " ' " + tempItem.Quantity + "'";
             return aStr;
         }
 
-        public void DatabaseAdd(OrderItem tempItem)
+        public void DatabaseAdd(Order tempOrder, OrderItem tempItem)
         {
 
             string strSQL = "";
-            strSQL = "INSERT into OrderItem(OrderItemNum, ProductNum, Quantity)" +
-                "VALUES(" + GetValueString(tempItem) + ")";
+            strSQL = "INSERT into OrderItem(OrderItemNum, OrderNum, ProductNum, Quantity)" +
+                "VALUES(" + GetValueString(tempOrder, tempItem) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
         }
@@ -100,8 +100,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
         //Deletes order items and mappings
         public void DatabaseDelete(Order tempOrder)
         {
-            string sqlStr = "DELETE FROM OrderItem, OrderMapping WHERE OrderItem.OrderItemNum = OrderMapping.OrderItemNum " 
-                + "and OrderMapping.OrderNum = '" + tempOrder.OrderNum + "'";
+            string sqlStr = "DELETE FROM OrderItem WHERE OrderNum = '" + tempOrder.OrderNum + "'";
 
             UpdateDataSource(new SqlCommand(sqlStr, cnMain));
         }
@@ -109,8 +108,8 @@ namespace Poppel_Ordering_System.DatabaseLayer
         //Removes the item from the OrderMapping table
         public void DatabaseRemoveItem(Order tempOrder, OrderItem tempItem)
         {
-            string sqlStr = "DELETE FROM OrderMapping, OrderItem WHERE OrderItem.OrderItemNum = OrderMapping.OrderItemNum AND OrderNum = '" 
-                + tempOrder.OrderNum + "' AND OrderItemNum = '" + tempItem.OrderItemNum + "'";
+            string sqlStr = "DELETE FROM OrderItem WHERE OrderNum = '" + tempOrder.OrderNum + 
+                "' AND OrderItemNum = '" + tempItem.OrderItemNum + "'";
 
             UpdateDataSource(new SqlCommand(sqlStr, cnMain));
         }

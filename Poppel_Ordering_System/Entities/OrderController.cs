@@ -38,12 +38,19 @@ namespace Poppel_Ordering_System.Entities
         {
             orders.Add(o);
             orderDB.DatabaseAdd(o);
+
+            foreach (OrderItem item in o.Items)
+            {
+                itemDB.DatabaseAdd(o, item);
+            }
         }
 
         public void EditOrder(Order o, OrderChangeType type)
         {
-            int ordInd = FindOrderIndex(o);
-            int itemInd = 0;
+            int ordInd = FindOrderIndex(o); //index of order in Collection orders
+            int itemInd = 0; //initiate item index in Collection items
+
+            //If the type of the edit is an item edit
             if (type == OrderChangeType.Item)
             {
                 if (orders[ordInd].Status < OrderStatus.Invoiced)
