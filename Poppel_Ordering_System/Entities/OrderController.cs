@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace Poppel_Ordering_System.Entities
 {
-    class OrderController
+    public class OrderController
     {
         #region Properties
         OrderInfoDB orderDB;
-        OrderItemInfoDB itemDB;
-        private Collection<OrderItem> items;
         private Collection<Order> custOrders;
         int custNum;
         #endregion
@@ -23,6 +21,10 @@ namespace Poppel_Ordering_System.Entities
         {
             get { return custOrders; }
         }
+        public int NextID
+        {
+            get { return custOrders.Last().OrderNum + 1; }
+        }
         #endregion
 
         #region Constructor
@@ -31,7 +33,6 @@ namespace Poppel_Ordering_System.Entities
             custNum = customerNum;
             orderDB = new OrderInfoDB(custNum);
             custOrders = orderDB.AllCustOrders;
-            // items = itemDB.AllOrderItems;
         }
         #endregion
 
@@ -134,49 +135,6 @@ namespace Poppel_Ordering_System.Entities
             }
         }
 
-        public int FindItemIndex(OrderItem item)
-        {
-            int index = 0;
-            bool found = false;
-            while (!found && index < items.Count)
-            {
-                found = (items[index].OrderItemNum == item.OrderItemNum);
-                if (!found)
-                {
-                    index++;
-                }
-            }
-            if (found)
-            {
-                return index;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
-        public OrderItem FinditemByID(string IDvalue)
-        {
-            int position = 0;
-            bool found = (IDvalue == items[position].OrderItemNum.ToString());
-            while (!found && position < items.Count)
-            {
-                found = (IDvalue == items[position].OrderItemNum.ToString());
-                if (!found)
-                {
-                    position += 1;
-                }
-            }
-            if (found)
-            {
-                return items[position];
-            }
-            else
-            {
-                return null;
-            }
-        }
         #endregion
     }
 }

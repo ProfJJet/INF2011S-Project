@@ -35,7 +35,10 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
             products = new Collection<Product>();
             ReadDataFromTable("SELECT * FROM Product", products);
-            ReadDataFromTable("SELECT * FROM Product WHERE Expiry < " + DateTime.Now + ";", expiredProducts);
+            //ReadDataFromTable("SELECT * FROM Product WHERE Expiry < " + DateTime.Now + ";", expiredProducts);
+            Console.WriteLine("STUFF");
+            Console.WriteLine(products.Count);
+            Console.WriteLine("STUFF");
         }
         #endregion
 
@@ -48,7 +51,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 product = new Product();
                 product.ProductNum = reader.GetInt32(0);
                 product.Name = reader.GetString(1).Trim();
-                product.Price = reader.GetFloat(2);
+                product.Price = reader.GetDecimal(2);
                 product.Stock = reader.GetInt32(3);
                 product.Supplier = reader.GetString(4).Trim();
                 product.Description = reader.GetString(5).Trim();

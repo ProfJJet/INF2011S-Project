@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Poppel_Ordering_System.Entities
 {
-    enum OrderStatus { New_Order, On_Hold, Invoiced, Shipped, Delivered, Closed }
-    enum OrderChangeType { Status, Item}
-    class Order
+    public enum OrderStatus { New_Order, On_Hold, Invoiced, Shipped, Delivered, Closed }
+    public class Order
     {
         #region Order Fields
         private int orderNum;

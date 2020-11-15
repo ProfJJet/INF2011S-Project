@@ -15,22 +15,28 @@ namespace Poppel_Ordering_System.DatabaseLayer
     {
         #region Fields
         string table1 = "OrderItem";
-        string sql_SELECT1 = "SELECT * FROM OrderItem";
         private Collection<OrderItem> orderItems;
+        private int orderNum;
         #endregion
 
         #region Property Methods
         public Collection<OrderItem> AllOrderItems
         {
-            get { return orderItems; }
+            get 
+            { 
+                orderItems = new Collection<OrderItem>();
+
+                string sql_SELECT = "SELECT * FROM OrderItem WHERE OrderNum="+orderNum;
+                ReadDataFromTable(sql_SELECT, table1);
+                return orderItems; 
+            }
         }
         #endregion
 
         #region Constructor
-        public OrderItemInfoDB(): base()
+        public OrderItemInfoDB(int orderNum): base()
         {
-            orderItems = new Collection<OrderItem>();
-            ReadDataFromTable(sql_SELECT1, table1);
+            this.orderNum = orderNum;
         }
         #endregion
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.orderListView = new System.Windows.Forms.ListView();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.orderListView = new System.Windows.Forms.ListView();
+            this.btnViewOrder = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,6 +69,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnViewOrder);
             this.panel3.Controls.Add(this.orderListView);
             this.panel3.Controls.Add(this.btnCreateOrder);
             this.panel3.Controls.Add(this.panel5);
@@ -76,14 +78,25 @@
             this.panel3.Size = new System.Drawing.Size(812, 336);
             this.panel3.TabIndex = 7;
             // 
+            // orderListView
+            // 
+            this.orderListView.HideSelection = false;
+            this.orderListView.Location = new System.Drawing.Point(-1, 54);
+            this.orderListView.Name = "orderListView";
+            this.orderListView.Size = new System.Drawing.Size(812, 238);
+            this.orderListView.TabIndex = 13;
+            this.orderListView.UseCompatibleStateImageBehavior = false;
+            this.orderListView.SelectedIndexChanged += new System.EventHandler(this.orderListView_SelectedIndexChanged);
+            // 
             // btnCreateOrder
             // 
             this.btnCreateOrder.Location = new System.Drawing.Point(3, 298);
             this.btnCreateOrder.Name = "btnCreateOrder";
             this.btnCreateOrder.Size = new System.Drawing.Size(131, 33);
             this.btnCreateOrder.TabIndex = 12;
-            this.btnCreateOrder.Text = "Create Order";
+            this.btnCreateOrder.Text = "Create New Order";
             this.btnCreateOrder.UseVisualStyleBackColor = true;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
             // panel5
             // 
@@ -338,14 +351,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Poppel";
             // 
-            // orderListView
+            // btnViewOrder
             // 
-            this.orderListView.HideSelection = false;
-            this.orderListView.Location = new System.Drawing.Point(-1, 54);
-            this.orderListView.Name = "orderListView";
-            this.orderListView.Size = new System.Drawing.Size(812, 238);
-            this.orderListView.TabIndex = 13;
-            this.orderListView.UseCompatibleStateImageBehavior = false;
+            this.btnViewOrder.Location = new System.Drawing.Point(167, 298);
+            this.btnViewOrder.Name = "btnViewOrder";
+            this.btnViewOrder.Size = new System.Drawing.Size(131, 33);
+            this.btnViewOrder.TabIndex = 14;
+            this.btnViewOrder.Text = "View Order";
+            this.btnViewOrder.UseVisualStyleBackColor = true;
+            this.btnViewOrder.Click += new System.EventHandler(this.btnViewOrder_Click);
             // 
             // ProfileForm
             // 
@@ -406,5 +420,6 @@
         private System.Windows.Forms.Label CustBlackLabel;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ListView orderListView;
+        private System.Windows.Forms.Button btnViewOrder;
     }
 }

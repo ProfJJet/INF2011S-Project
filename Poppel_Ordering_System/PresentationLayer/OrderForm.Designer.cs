@@ -29,26 +29,29 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.DateLabel = new System.Windows.Forms.Label();
+            this.OrderNumLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblOrderNo = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CustPhoneLabel = new System.Windows.Forms.Label();
+            this.CustAddressLabel = new System.Windows.Forms.Label();
+            this.CustNameLabel = new System.Windows.Forms.Label();
+            this.CustNumLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.TotalLabel = new System.Windows.Forms.Label();
             this.btnCancelOrder = new System.Windows.Forms.Button();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.itemListView = new System.Windows.Forms.ListView();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,8 +59,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.lblOrderNo);
+            this.panel1.Controls.Add(this.DateLabel);
+            this.panel1.Controls.Add(this.OrderNumLabel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
@@ -65,16 +68,27 @@
             this.panel1.Size = new System.Drawing.Size(846, 64);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // DateLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label2.Location = new System.Drawing.Point(12, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Order no:";
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.DateLabel.Location = new System.Drawing.Point(705, 17);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(80, 25);
+            this.DateLabel.TabIndex = 5;
+            this.DateLabel.Text = "--/--/----";
+            // 
+            // OrderNumLabel
+            // 
+            this.OrderNumLabel.AutoSize = true;
+            this.OrderNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderNumLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.OrderNumLabel.Location = new System.Drawing.Point(120, 17);
+            this.OrderNumLabel.Name = "OrderNumLabel";
+            this.OrderNumLabel.Size = new System.Drawing.Size(159, 25);
+            this.OrderNumLabel.TabIndex = 4;
+            this.OrderNumLabel.Text = "---------------------";
             // 
             // label1
             // 
@@ -87,35 +101,24 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Date:";
             // 
-            // lblOrderNo
+            // label2
             // 
-            this.lblOrderNo.AutoSize = true;
-            this.lblOrderNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderNo.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblOrderNo.Location = new System.Drawing.Point(120, 17);
-            this.lblOrderNo.Name = "lblOrderNo";
-            this.lblOrderNo.Size = new System.Drawing.Size(159, 25);
-            this.lblOrderNo.TabIndex = 4;
-            this.lblOrderNo.Text = "---------------------";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblDate.Location = new System.Drawing.Point(705, 17);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(80, 25);
-            this.lblDate.TabIndex = 5;
-            this.lblDate.Text = "--/--/----";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label2.Location = new System.Drawing.Point(12, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Order no:";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.CustPhoneLabel);
+            this.panel2.Controls.Add(this.CustAddressLabel);
+            this.panel2.Controls.Add(this.CustNameLabel);
+            this.panel2.Controls.Add(this.CustNumLabel);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
@@ -125,49 +128,60 @@
             this.panel2.Size = new System.Drawing.Size(846, 132);
             this.panel2.TabIndex = 2;
             // 
-            // label20
+            // label4
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label20.Location = new System.Drawing.Point(579, 51);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(75, 15);
-            this.label20.TabIndex = 24;
-            this.label20.Text = "-----------------";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label4.Location = new System.Drawing.Point(14, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 20);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Customer Details:";
             // 
-            // label17
+            // CustPhoneLabel
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label17.Location = new System.Drawing.Point(579, 80);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 15);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "-----------------";
+            this.CustPhoneLabel.AutoSize = true;
+            this.CustPhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustPhoneLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.CustPhoneLabel.Location = new System.Drawing.Point(579, 51);
+            this.CustPhoneLabel.Name = "CustPhoneLabel";
+            this.CustPhoneLabel.Size = new System.Drawing.Size(75, 15);
+            this.CustPhoneLabel.TabIndex = 24;
+            this.CustPhoneLabel.Text = "-----------------";
             // 
-            // label16
+            // CustAddressLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label16.Location = new System.Drawing.Point(216, 80);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 15);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "-----------------";
+            this.CustAddressLabel.AutoSize = true;
+            this.CustAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustAddressLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.CustAddressLabel.Location = new System.Drawing.Point(579, 80);
+            this.CustAddressLabel.Name = "CustAddressLabel";
+            this.CustAddressLabel.Size = new System.Drawing.Size(75, 15);
+            this.CustAddressLabel.TabIndex = 23;
+            this.CustAddressLabel.Text = "-----------------";
             // 
-            // label14
+            // CustNameLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label14.Location = new System.Drawing.Point(216, 51);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 15);
-            this.label14.TabIndex = 21;
-            this.label14.Text = "-----------------";
+            this.CustNameLabel.AutoSize = true;
+            this.CustNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustNameLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.CustNameLabel.Location = new System.Drawing.Point(216, 80);
+            this.CustNameLabel.Name = "CustNameLabel";
+            this.CustNameLabel.Size = new System.Drawing.Size(75, 15);
+            this.CustNameLabel.TabIndex = 22;
+            this.CustNameLabel.Text = "-----------------";
+            // 
+            // CustNumLabel
+            // 
+            this.CustNumLabel.AutoSize = true;
+            this.CustNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustNumLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.CustNumLabel.Location = new System.Drawing.Point(216, 51);
+            this.CustNumLabel.Name = "CustNumLabel";
+            this.CustNumLabel.Size = new System.Drawing.Size(75, 15);
+            this.CustNumLabel.TabIndex = 21;
+            this.CustNumLabel.Text = "-----------------";
             // 
             // label11
             // 
@@ -198,9 +212,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label6.Location = new System.Drawing.Point(433, 51);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 15);
+            this.label6.Size = new System.Drawing.Size(94, 15);
             this.label6.TabIndex = 18;
-            this.label6.Text = "tel. no:";
+            this.label6.Text = "Phone Number:";
             // 
             // label5
             // 
@@ -213,17 +227,6 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Customer No:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Location = new System.Drawing.Point(14, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 20);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Customer Details:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -234,14 +237,6 @@
             this.label3.Size = new System.Drawing.Size(120, 20);
             this.label3.TabIndex = 26;
             this.label3.Text = "Order Details:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 269);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(846, 217);
-            this.richTextBox1.TabIndex = 27;
-            this.richTextBox1.Text = "";
             // 
             // label7
             // 
@@ -254,20 +249,20 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Total:";
             // 
-            // label9
+            // TotalLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label9.Location = new System.Drawing.Point(727, 503);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 20);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "R----------";
+            this.TotalLabel.AutoSize = true;
+            this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TotalLabel.Location = new System.Drawing.Point(727, 503);
+            this.TotalLabel.Name = "TotalLabel";
+            this.TotalLabel.Size = new System.Drawing.Size(71, 20);
+            this.TotalLabel.TabIndex = 6;
+            this.TotalLabel.Text = "R----------";
             // 
             // btnCancelOrder
             // 
-            this.btnCancelOrder.Location = new System.Drawing.Point(594, 547);
+            this.btnCancelOrder.Location = new System.Drawing.Point(12, 547);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(118, 23);
             this.btnCancelOrder.TabIndex = 29;
@@ -276,28 +271,71 @@
             // 
             // btnPlaceOrder
             // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(745, 547);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(740, 547);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(113, 23);
+            this.btnPlaceOrder.Size = new System.Drawing.Size(118, 23);
             this.btnPlaceOrder.TabIndex = 30;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(586, 547);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(118, 23);
+            this.btnCancel.TabIndex = 31;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Location = new System.Drawing.Point(9, 506);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(118, 23);
+            this.btnAddItem.TabIndex = 32;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            // 
+            // itemListView
+            // 
+            this.itemListView.HideSelection = false;
+            this.itemListView.Location = new System.Drawing.Point(12, 260);
+            this.itemListView.Name = "itemListView";
+            this.itemListView.Size = new System.Drawing.Size(846, 240);
+            this.itemListView.TabIndex = 33;
+            this.itemListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(740, 547);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(118, 23);
+            this.btnBack.TabIndex = 34;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 591);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.itemListView);
+            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPlaceOrder);
             this.Controls.Add(this.btnCancelOrder);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
+            this.Activated += new System.EventHandler(this.OrderForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderForm_FormClosed);
+            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -310,25 +348,28 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblOrderNo;
+        private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.Label OrderNumLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label CustPhoneLabel;
+        private System.Windows.Forms.Label CustAddressLabel;
+        private System.Windows.Forms.Label CustNameLabel;
+        private System.Windows.Forms.Label CustNumLabel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.Button btnCancelOrder;
         private System.Windows.Forms.Button btnPlaceOrder;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.ListView itemListView;
+        private System.Windows.Forms.Button btnBack;
     }
 }

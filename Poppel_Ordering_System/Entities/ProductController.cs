@@ -74,13 +74,16 @@ namespace Poppel_Ordering_System.Entities
             }
         }
 
-        public Product FindByID(string IDvalue)
+        public Product FindByID(int productNum)
         {
             int position = 0;
-            bool found = (IDvalue == products[position].ProductNum.ToString());
+            Console.WriteLine(products.Count);
+            Console.WriteLine(productNum);
+            bool found = (productNum == products[position].ProductNum);
             while (!found && position < products.Count)
             {
-                found = (IDvalue == products[position].ProductNum.ToString());
+                Console.WriteLine(products[position].ProductNum);
+                found = (productNum == products[position].ProductNum);
                 if (!found)
                 {
                     position += 1;

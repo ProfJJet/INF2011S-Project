@@ -11,7 +11,7 @@ namespace Poppel_Ordering_System.Entities
         #region Product Fields
         private int productNum;
         private string name;
-        private float price;
+        private decimal price;
         private int stock;
         private string supplier;
         private string description;
@@ -33,7 +33,7 @@ namespace Poppel_Ordering_System.Entities
             set { name = value; }
         }
 
-        public float Price
+        public decimal Price
         {
             get { return price; }
             set { price = value; }
@@ -64,7 +64,7 @@ namespace Poppel_Ordering_System.Entities
         #endregion
         
         #region Constructors
-        public Product( int productNum, string name, float price, int stock, string supplier, string address, string creditStatus, int creditLimit, string description, DateTime expiry)
+        public Product( int productNum, string name, decimal price, int stock, string supplier, string address, string creditStatus, int creditLimit, string description, DateTime expiry)
         {
             this.ProductNum = productNum;
             this.Name = name;

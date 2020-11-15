@@ -18,12 +18,15 @@ namespace Poppel_Ordering_System.PresentationLayer
         public bool profileFormClosed = false;
         MainForm mainForm;
         private Customer cust;
+        public OrderForm orderForm;
+        public OrderController orderCont;
         #endregion
 
         #region Constructor
         public ProfileForm(Customer cust)
         {
             InitializeComponent();
+            orderCont = new OrderController(cust.CustomerNum);
             PopulateForm(cust);
         }
         #endregion
@@ -68,12 +71,30 @@ namespace Poppel_Ordering_System.PresentationLayer
             orderListView.Refresh();
             orderListView.GridLines = true;
         }
+        public void CreateOrderForm(Customer cust)
+        {
+            Order order = new Order();
+            order.OrderNum = orderCont.NextID;
+            this.CreateOrderForm(cust, order, true);
+        }
+        public void CreateOrderForm(Customer cust, Order order, bool newOrder)
+        {
+            if (orderForm == null || orderForm.orderFormClosed)
+            {
+                orderForm = new OrderForm(cust, order, newOrder);
+                orderForm.MdiParent = this.mainForm;
+                orderForm.StartPosition = FormStartPosition.CenterScreen;
+                orderForm.Show();
+            }
+            else { orderForm.PopulateForm(cust, order, newOrder); }
+        }
         #endregion
 
         #region Form Methods
         private void ProfileForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             profileFormClosed = true;
+            if (orderForm != null){ orderForm.Close(); }
         }
         private void ProfileForm_Load(object sender, EventArgs e)
         {
@@ -87,7 +108,23 @@ namespace Poppel_Ordering_System.PresentationLayer
             orderListView.View = View.Details;
             setupListView();
         }
+
+        private void btnCreateOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnViewOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderListView_SelectedIndexChanged(Object sender, EventArgs e)
+        {
+            Order order = orderCont.FindOrderByID(orderListView.FocusedItem.Text);
+            CreateOrderForm(cust, order, false);
+            orderListView.Refresh();
+        }
         #endregion
-        //	32	Wimpy	root@wimpy.co.za	084 621 5082	1739 Albert St, Katlehong, Gauteng	overdue	93000	True
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Poppel_Ordering_System.Entities
 {
-    class OrderItem
+    public class OrderItem
     {
         #region OrderItem Fields
         private int orderItemNum;
