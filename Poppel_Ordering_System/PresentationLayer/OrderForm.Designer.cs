@@ -268,6 +268,7 @@
             this.btnCancelOrder.TabIndex = 29;
             this.btnCancelOrder.Text = "Cancel Order";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
             // 
             // btnPlaceOrder
             // 
@@ -286,15 +287,17 @@
             this.btnCancel.TabIndex = 31;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(9, 506);
+            this.btnAddItem.Location = new System.Drawing.Point(12, 506);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(118, 23);
             this.btnAddItem.TabIndex = 32;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // itemListView
             // 

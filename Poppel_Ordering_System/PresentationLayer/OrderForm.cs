@@ -17,23 +17,25 @@ namespace Poppel_Ordering_System.PresentationLayer
         #region Fields
         public bool orderFormClosed = false;
         public bool newOrder;
+        private ProfileForm profileForm;
         private Customer cust;
         private Order order;
         MainForm mainForm;
         #endregion
         #region Constructor
-        public OrderForm(Customer customer, Order order, bool newOrder)
+        public OrderForm(Customer customer, Order order, bool newOrder, ProfileForm profileForm)
         {
             InitializeComponent();
-            PopulateForm(customer, order, newOrder);
+            PopulateForm(customer, order, newOrder, profileForm);
         }
         #endregion
         #region Methods
-        public void PopulateForm(Customer cust, Order order, bool newOrder)
+        public void PopulateForm(Customer cust, Order order, bool newOrder, ProfileForm profileForm)
         {
             this.cust = cust;
             this.order = order;
             this.newOrder = newOrder;
+            this.profileForm = profileForm;
             displayNewButtons(newOrder);
             OrderNumLabel.Text = Convert.ToString(order.OrderNum);
             DateLabel.Text = DateTime.Now.ToString("yyyy/MM/dd");
@@ -41,7 +43,6 @@ namespace Poppel_Ordering_System.PresentationLayer
             CustNameLabel.Text = cust.Name;
             CustAddressLabel.Text = cust.Address;
             CustPhoneLabel.Text = cust.PhoneNum;
-            setupListView();
 
         }
         public void displayNewButtons(bool value)
@@ -115,8 +116,28 @@ namespace Poppel_Ordering_System.PresentationLayer
             itemListView.View = View.Details;
             setupListView();
         }
-        private void btnBack_Click(object sender, EventArgs e) { Close(); }
+        private void btnBack_Click(object sender, EventArgs e) { Close(); profileForm.Activate(); }
         #endregion
 
+        private void btnCancel_Click(object sender, EventArgs e) { Close(); profileForm.Activate(); }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            //TODO: Add functionality
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            OrderItemController itemCont = new OrderItemController(order.OrderNum);
+            ProductController prodCont = new ProductController();
+            Collection<OrderItem> items = itemCont.AllOrderItems;
+
+            foreach (OrderItem item in items) { prodCont.Unreserve(item.ProductNum, item.Quantity); }
+            prodCont.Refresh();
+            itemCont.DeleteOrder();
+            Close();
+            profileForm.setupListView();
+            profileForm.Activate();
+        }
     }
 }

@@ -81,12 +81,12 @@ namespace Poppel_Ordering_System.PresentationLayer
         {
             if (orderForm == null || orderForm.orderFormClosed)
             {
-                orderForm = new OrderForm(cust, order, newOrder);
+                orderForm = new OrderForm(cust, order, newOrder, this);
                 orderForm.MdiParent = this.mainForm;
                 orderForm.StartPosition = FormStartPosition.CenterScreen;
                 orderForm.Show();
             }
-            else { orderForm.PopulateForm(cust, order, newOrder); }
+            else { orderForm.PopulateForm(cust, order, newOrder, this); }
         }
         #endregion
 

@@ -57,7 +57,6 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnViewOrder = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -69,7 +68,6 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.btnViewOrder);
             this.panel3.Controls.Add(this.orderListView);
             this.panel3.Controls.Add(this.btnCreateOrder);
             this.panel3.Controls.Add(this.panel5);
@@ -351,16 +349,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Poppel";
             // 
-            // btnViewOrder
-            // 
-            this.btnViewOrder.Location = new System.Drawing.Point(167, 298);
-            this.btnViewOrder.Name = "btnViewOrder";
-            this.btnViewOrder.Size = new System.Drawing.Size(131, 33);
-            this.btnViewOrder.TabIndex = 14;
-            this.btnViewOrder.Text = "View Order";
-            this.btnViewOrder.UseVisualStyleBackColor = true;
-            this.btnViewOrder.Click += new System.EventHandler(this.btnViewOrder_Click);
-            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +408,5 @@
         private System.Windows.Forms.Label CustBlackLabel;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ListView orderListView;
-        private System.Windows.Forms.Button btnViewOrder;
     }
 }

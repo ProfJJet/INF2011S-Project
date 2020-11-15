@@ -61,5 +61,8 @@ namespace Poppel_Ordering_System.Entities
             else { return null; }
         }
         #endregion
+        #region CRUD Methods
+        public void DeleteOrder() { itemDB.DeleteOrder(orderNum); }
+        #endregion
     }
 }

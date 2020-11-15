@@ -49,6 +49,8 @@ namespace Poppel_Ordering_System.Entities
 
             productDB.DatabaseEdit(p);
         }
+        public void Unreserve(int productNum, int quantity) { productDB.Unreserve(productNum, quantity); }
+        public void Refresh() { products = productDB.RefreshProducts(); }
         #endregion
 
         #region search methods
@@ -77,26 +79,14 @@ namespace Poppel_Ordering_System.Entities
         public Product FindByID(int productNum)
         {
             int position = 0;
-            Console.WriteLine(products.Count);
-            Console.WriteLine(productNum);
             bool found = (productNum == products[position].ProductNum);
             while (!found && position < products.Count)
             {
-                Console.WriteLine(products[position].ProductNum);
                 found = (productNum == products[position].ProductNum);
-                if (!found)
-                {
-                    position += 1;
-                }
+                if (!found) { position += 1; }
             }
-            if (found)
-            {
-                return products[position];
-            }
-            else
-            {
-                return null;
-            }
+            if (found) { return products[position]; }
+            else { return null; }
         }
         #endregion
     }

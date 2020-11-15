@@ -85,6 +85,13 @@ namespace Poppel_Ordering_System.DatabaseLayer
             return aStr;
         }
 
+        public void DeleteOrder(int orderNum)
+        {
+            string strSQL = "DELETE FROM OrderItem WHERE OrderNum = " + orderNum;
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+            strSQL = "DELETE FROM Orders WHERE OrderNum = " + orderNum;
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+        }
         public void DatabaseAdd(Order tempOrder, OrderItem tempItem)
         {
 
@@ -93,32 +100,6 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 "VALUES(" + GetValueString(tempOrder, tempItem) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
-        }
-
-        //Edit order details, specifically the quantity
-        public void DatabaseEdit(OrderItem tempItem)
-        {
-            string sqlString = "Update OrderItem Set Quantity = '" + tempItem.Quantity + "'," +
-                               "WHERE (OrderItemNum = '" + tempItem.OrderItemNum + " AND ProductNum = '" + tempItem.ProductNum + "')";
-
-            UpdateDataSource(new SqlCommand(sqlString, cnMain));
-        }
-
-        //Deletes order items and mappings
-        public void DatabaseDelete(Order tempOrder)
-        {
-            string sqlStr = "DELETE FROM OrderItem WHERE OrderNum = '" + tempOrder.OrderNum + "'";
-
-            UpdateDataSource(new SqlCommand(sqlStr, cnMain));
-        }
-
-        //Removes the item from the OrderMapping table
-        public void DatabaseRemoveItem(Order tempOrder, OrderItem tempItem)
-        {
-            string sqlStr = "DELETE FROM OrderItem WHERE OrderNum = '" + tempOrder.OrderNum + 
-                "' AND OrderItemNum = '" + tempItem.OrderItemNum + "'";
-
-            UpdateDataSource(new SqlCommand(sqlStr, cnMain));
         }
         #endregion
     }

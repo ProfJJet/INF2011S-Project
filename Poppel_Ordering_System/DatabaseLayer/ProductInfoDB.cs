@@ -34,11 +34,9 @@ namespace Poppel_Ordering_System.DatabaseLayer
         public ProductInfoDB(): base()
         {
             products = new Collection<Product>();
+            expiredProducts = new Collection<Product>();
             ReadDataFromTable("SELECT * FROM Product", products);
-            //ReadDataFromTable("SELECT * FROM Product WHERE Expiry < " + DateTime.Now + ";", expiredProducts);
-            Console.WriteLine("STUFF");
-            Console.WriteLine(products.Count);
-            Console.WriteLine("STUFF");
+            ReadDataFromTable("SELECT * FROM Product WHERE Expiry < '" + DateTime.Now.ToString("yyyy-MM-dd") + "'", expiredProducts);
         }
         #endregion
 
@@ -78,12 +76,21 @@ namespace Poppel_Ordering_System.DatabaseLayer
             }
             catch (Exception ex) { return (ex.ToString()); }
         }
-
-
-
         #endregion
 
         #region CRUD methods
+        public  void Unreserve(int productNum, int quantity)
+        {
+            string strSQL = "UPDATE Product SET Stock = Stock + " + quantity + " WHERE ProductNum = " + productNum;
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+
+        }
+        public Collection<Product> RefreshProducts()
+        {
+            products = new Collection<Product>();
+            ReadDataFromTable("SELECT * FROM Product", products);
+            return products;
+        }
         public string GetValueString(Product tempProd)
         {
 
@@ -98,8 +105,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
         public void DatabaseAdd(Product tempProd)
         {
 
-            string strSQL = "";
-            strSQL = "INSERT into Product(ProductNum, Name, Price, Stock, Supplier, Description)" +
+            string strSQL = "INSERT into Product(ProductNum, Name, Price, Stock, Supplier, Description)" +
                 "VALUES(" + GetValueString(tempProd) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
