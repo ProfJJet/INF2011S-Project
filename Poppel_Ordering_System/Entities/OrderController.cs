@@ -14,77 +14,79 @@ namespace Poppel_Ordering_System.Entities
         OrderInfoDB orderDB;
         OrderItemInfoDB itemDB;
         private Collection<OrderItem> items;
-        private Collection<Order> orders;
+        private Collection<Order> custOrders;
+        int custNum;
         #endregion
 
         #region Property methods
-        public Collection<Order> AllOrders
+        public Collection<Order> AllCustOrders
         {
-            get { return orders; }
+            get { return custOrders; }
         }
         #endregion
 
         #region Constructor
-        public OrderController()
+        public OrderController(int customerNum)
         {
-            orderDB = new OrderInfoDB();
-            orders = orderDB.AllOrders;
-            items = itemDB.AllOrderItems;
+            custNum = customerNum;
+            orderDB = new OrderInfoDB(custNum);
+            custOrders = orderDB.AllCustOrders;
+            // items = itemDB.AllOrderItems;
         }
         #endregion
 
         #region CRUD methods
-        public void AddOrder(Order o)
-        {
-            orders.Add(o);
-            orderDB.DatabaseAdd(o);
+        //public void AddOrder(Order o)
+        //{
+        //    custOrders.Add(o);
+        //    orderDB.DatabaseAdd(o);
 
-            foreach (OrderItem item in o.OrderItems)
-            {
-                itemDB.DatabaseAdd(o, item);
-            }
-        }
+        //    foreach (OrderItem item in o.OrderItems)
+        //    {
+        //        itemDB.DatabaseAdd(o, item);
+        //    }
+        //}
 
-        public void EditOrder(Order o, OrderChangeType type)
-        {
-            int ordInd = FindOrderIndex(o); //index of order in Collection orders
-            int itemInd = 0; //initiate item index in Collection items
+        //public void EditOrder(Order o, OrderChangeType type)
+        //{
+        //    int ordInd = FindOrderIndex(o); //index of order in Collection orders
+        //    int itemInd = 0; //initiate item index in Collection items
 
-            //If the type of the edit is an item edit
-            if (type == OrderChangeType.Item)
-            {
-                if (orders[ordInd].Status < OrderStatus.Invoiced)
-                {
-                    foreach(OrderItem item in o.OrderItems)
-                    {
-                        itemDB.DatabaseEdit(item);
+        //    //If the type of the edit is an item edit
+        //    if (type == OrderChangeType.Item)
+        //    {
+        //        if (custOrders[ordInd].Status < OrderStatus.Invoiced)
+        //        {
+        //            foreach(OrderItem item in o.OrderItems)
+        //            {
+        //                itemDB.DatabaseEdit(item);
 
-                        itemInd = FindItemIndex(item);
-                        items[itemInd].Quantity = item.Quantity;
-                    }
-                }
-                else
-                {
-                    //TODO: Display "error can't change now"
-                }
-            }
-            else
-            {
-                orderDB.DatabaseUpdateStatus(o);
-                orders[ordInd].Status = o.Status;
-            }
-        }
+        //                itemInd = FindItemIndex(item);
+        //                items[itemInd].Quantity = item.Quantity;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            //TODO: Display "error can't change now"
+        //        }
+        //    }
+        //    else
+        //    {
+        //        orderDB.DatabaseUpdateStatus(o);
+        //        custOrders[ordInd].Status = o.Status;
+        //    }
+        //}
 
-        public void DeleteOrder(Order o)
-        {
-            itemDB.DatabaseDelete(o);
-            orderDB.DatabaseDelete(o);
-        }
+        //public void DeleteOrder(Order o)
+        //{
+        //    itemDB.DatabaseDelete(o);
+        //    orderDB.DatabaseDelete(o);
+        //}
 
-        public void RemoveItem(Order o, OrderItem i)
-        {
-            itemDB.DatabaseRemoveItem(o, i);
-        }
+        //public void RemoveItem(Order o, OrderItem i)
+        //{
+        //    itemDB.DatabaseRemoveItem(o, i);
+        //}
         #endregion
 
         #region search methods
@@ -92,9 +94,9 @@ namespace Poppel_Ordering_System.Entities
         {
             int index = 0;
             bool found = false;
-            while (!found && index < orders.Count)
+            while (!found && index < custOrders.Count)
             {
-                found = (orders[index].OrderNum == order.OrderNum);
+                found = (custOrders[index].OrderNum == order.OrderNum);
                 if (!found)
                 {
                     index++;
@@ -113,10 +115,10 @@ namespace Poppel_Ordering_System.Entities
         public Order FindOrderByID(string IDvalue)
         {
             int position = 0;
-            bool found = (IDvalue == orders[position].OrderNum.ToString());
-            while (!found && position < orders.Count)
+            bool found = (IDvalue == custOrders[position].OrderNum.ToString());
+            while (!found && position < custOrders.Count)
             {
-                found = (IDvalue == orders[position].OrderNum.ToString());
+                found = (IDvalue == custOrders[position].OrderNum.ToString());
                 if (!found)
                 {
                     position += 1;
@@ -124,7 +126,7 @@ namespace Poppel_Ordering_System.Entities
             }
             if (found)
             {
-                return orders[position];
+                return custOrders[position];
             }
             else
             {

@@ -15,22 +15,28 @@ namespace Poppel_Ordering_System.DatabaseLayer
     {
         #region Fields
         string table1 = "Orders";
-        string sql_SELECT1 = "SELECT * FROM Orders";
         private Collection<Order> orders;
+        private int custNum;
         #endregion
 
         #region Property Methods
-        public Collection<Order> AllOrders
+        public Collection<Order> AllCustOrders
         {
-            get { return orders; }
+            get 
+            { 
+                orders = new Collection<Order>();
+
+                string sql_SELECT = "SELECT * FROM Orders WHERE CustomerNum="+custNum;
+                ReadDataFromTable(sql_SELECT, table1);
+                return orders;
+            }
         }
         #endregion
 
         #region Constructor
-        public OrderInfoDB(): base()
+        public OrderInfoDB(int customerNum): base()
         {
-            orders = new Collection<Order>();
-            ReadDataFromTable(sql_SELECT1, table1);
+            custNum = customerNum;
         }
         #endregion
 
@@ -77,9 +83,9 @@ namespace Poppel_Ordering_System.DatabaseLayer
         public string GetValueString(Order tempOrder)
         {
 
-            string aStr = tempOrder.OrderNum + ", ' " + tempOrder.CustomerNum + " ' ," +
-             " ' " + tempOrder.DatePlaced + " ' ," + " ' " + tempOrder.DateShipped + " ' , " +
-             " ' " + tempOrder.DeliveryAddress + " ' , " + tempOrder.Status + " '";
+            string aStr = tempOrder.OrderNum + ", '" + tempOrder.CustomerNum + "', " +
+             " '" + tempOrder.DatePlaced + "', " + " '" + tempOrder.DateShipped + "', " +
+             " '" + tempOrder.DeliveryAddress + "', " + " '" + tempOrder.Status ;
             return aStr;
         }
 
@@ -87,7 +93,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
 
             string strSQL = "";
-            strSQL = "INSERT into Orders(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + //Should it be DatePlaced?
+            strSQL = "INSERT into Orders(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + 
                 "VALUES(" + GetValueString(tempOrder) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));

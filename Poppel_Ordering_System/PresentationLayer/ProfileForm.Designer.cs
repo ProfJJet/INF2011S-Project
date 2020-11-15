@@ -30,14 +30,8 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCreateOrder = new System.Windows.Forms.Button();
-            this.ltxOrders = new System.Windows.Forms.ListBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CustBlackLabel = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -62,9 +56,9 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.orderListView = new System.Windows.Forms.ListView();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlHead.SuspendLayout();
@@ -74,30 +68,22 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.orderListView);
             this.panel3.Controls.Add(this.btnCreateOrder);
-            this.panel3.Controls.Add(this.ltxOrders);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Location = new System.Drawing.Point(12, 381);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(812, 258);
+            this.panel3.Size = new System.Drawing.Size(812, 336);
             this.panel3.TabIndex = 7;
             // 
             // btnCreateOrder
             // 
-            this.btnCreateOrder.Location = new System.Drawing.Point(3, 220);
+            this.btnCreateOrder.Location = new System.Drawing.Point(3, 298);
             this.btnCreateOrder.Name = "btnCreateOrder";
             this.btnCreateOrder.Size = new System.Drawing.Size(131, 33);
             this.btnCreateOrder.TabIndex = 12;
             this.btnCreateOrder.Text = "Create Order";
             this.btnCreateOrder.UseVisualStyleBackColor = true;
-            // 
-            // ltxOrders
-            // 
-            this.ltxOrders.FormattingEnabled = true;
-            this.ltxOrders.Location = new System.Drawing.Point(0, 54);
-            this.ltxOrders.Name = "ltxOrders";
-            this.ltxOrders.Size = new System.Drawing.Size(811, 160);
-            this.ltxOrders.TabIndex = 5;
             // 
             // panel5
             // 
@@ -117,54 +103,6 @@
             this.label12.Size = new System.Drawing.Size(83, 25);
             this.label12.TabIndex = 1;
             this.label12.Text = "Orders";
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label23);
-            this.panel4.Controls.Add(this.label24);
-            this.panel4.Controls.Add(this.label21);
-            this.panel4.Controls.Add(this.label22);
-            this.panel4.Location = new System.Drawing.Point(12, 645);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(812, 72);
-            this.panel4.TabIndex = 8;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(376, 43);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(58, 13);
-            this.label23.TabIndex = 22;
-            this.label23.Text = "-----------------";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(376, 14);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(58, 13);
-            this.label24.TabIndex = 21;
-            this.label24.Text = "-----------------";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(30, 41);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(58, 13);
-            this.label21.TabIndex = 20;
-            this.label21.Text = "-----------------";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(30, 12);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(58, 13);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "-----------------";
             // 
             // panel2
             // 
@@ -400,13 +338,21 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Poppel";
             // 
+            // orderListView
+            // 
+            this.orderListView.HideSelection = false;
+            this.orderListView.Location = new System.Drawing.Point(-1, 54);
+            this.orderListView.Name = "orderListView";
+            this.orderListView.Size = new System.Drawing.Size(812, 238);
+            this.orderListView.TabIndex = 13;
+            this.orderListView.UseCompatibleStateImageBehavior = false;
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 729);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlHead);
@@ -418,8 +364,6 @@
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -435,14 +379,8 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCreateOrder;
-        private System.Windows.Forms.ListBox ltxOrders;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label CustStatusLabel;
         private System.Windows.Forms.Label CustCredLimLabel;
@@ -467,5 +405,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label CustBlackLabel;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ListView orderListView;
     }
 }
