@@ -166,7 +166,7 @@ namespace Poppel_Ordering_System.PresentationLayer
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            if (TotalLabel.Text == "0") { Console.WriteLine("TODO: Message saying items needed"); }
+            if (TotalLabel.Text == "0") { MessageBox.Show("Cannot place empty order", "Order Empty"); }
             else
             {
                 submitted = true;

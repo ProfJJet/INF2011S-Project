@@ -265,7 +265,7 @@
             this.btnCancelOrder.Location = new System.Drawing.Point(12, 547);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(118, 23);
-            this.btnCancelOrder.TabIndex = 29;
+            this.btnCancelOrder.TabIndex = 100;
             this.btnCancelOrder.Text = "Cancel Order";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
             this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
@@ -275,7 +275,7 @@
             this.btnPlaceOrder.Location = new System.Drawing.Point(740, 547);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(118, 23);
-            this.btnPlaceOrder.TabIndex = 30;
+            this.btnPlaceOrder.TabIndex = 32;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
             this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
@@ -295,7 +295,7 @@
             this.btnAddItem.Location = new System.Drawing.Point(12, 506);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(118, 23);
-            this.btnAddItem.TabIndex = 32;
+            this.btnAddItem.TabIndex = 30;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);

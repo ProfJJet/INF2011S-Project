@@ -101,12 +101,16 @@ namespace Poppel_Ordering_System.PresentationLayer
             }
             catch (Exception) { }
             
-            if (product == null) {Console.WriteLine("TODO: Invalid productNum message"); return; }
+            if (product == null) { MessageBox.Show("Invalid Product Number", "Invalid Product Number"); return; }
             int quantity = -1;
             try { quantity = Convert.ToInt32(quantityTB.Text); }
             catch (Exception) { }
-            if (quantity <= 0) {Console.WriteLine("TODO: Invalid quantity message"); return; }
-            else if (quantity > product.Stock){Console.WriteLine("TODO:  not enough stock message"); return; }
+            if (quantity <= 0) { MessageBox.Show("Quantity must be a positive integer.", "Invalid Quantity"); return; }
+            else if (quantity > product.Stock)
+            {
+                MessageBox.Show("This product has a current stock level of "+product.Stock, "Not Enough Stock");
+                return; 
+            }
             OrderItem item = new OrderItem(itemCont.NextID, order.OrderNum, product.ProductNum, quantity);
             itemCont.AddItem(item);
             prodCont.Reserve(product.ProductNum, quantity);

@@ -111,8 +111,10 @@ namespace Poppel_Ordering_System.PresentationLayer
 
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-            if (cust.Blacklisted) { Console.Write("TODO: Implement Error Message");
-            } 
+            if (cust.Blacklisted)
+            {
+                MessageBox.Show("Blacklisted customers can not create new orders", "Blacklisted Customer");
+            }
             else
             {
                 CreateOrderForm(cust);

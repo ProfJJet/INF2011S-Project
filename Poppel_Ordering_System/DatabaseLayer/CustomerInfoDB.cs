@@ -92,12 +92,8 @@ namespace Poppel_Ordering_System.DatabaseLayer
 
         public void DatabaseAdd(Customer tempCust)
         {
-
-            string strSQL = "";
-            strSQL = "INSERT INTO Customer (CustomerNum, Name, Email, PhoneNum, Address, CreditStatus, CreditLimit, BlackListed)" +
+            string strSQL = "INSERT INTO Customer (CustomerNum, Name, Email, PhoneNum, Address, CreditStatus, CreditLimit, BlackListed)" +
                 "VALUES ( " + GetValueString(tempCust) + ")";
-
-            Console.WriteLine(strSQL);
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
         }
 

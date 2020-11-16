@@ -51,7 +51,7 @@
             this.btnPlaceOrder.Location = new System.Drawing.Point(723, 539);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(113, 23);
-            this.btnPlaceOrder.TabIndex = 38;
+            this.btnPlaceOrder.TabIndex = 44;
             this.btnPlaceOrder.Text = "Add to Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
             this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
@@ -61,7 +61,7 @@
             this.btnCancelOrder.Location = new System.Drawing.Point(572, 539);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(118, 23);
-            this.btnCancelOrder.TabIndex = 37;
+            this.btnCancelOrder.TabIndex = 45;
             this.btnCancelOrder.Text = "Cancel";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
             this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
@@ -171,7 +171,7 @@
             this.quantityTB.Location = new System.Drawing.Point(723, 459);
             this.quantityTB.Name = "quantityTB";
             this.quantityTB.Size = new System.Drawing.Size(113, 20);
-            this.quantityTB.TabIndex = 41;
+            this.quantityTB.TabIndex = 43;
             this.quantityTB.TextChanged += new System.EventHandler(this.valueChanged);
             // 
             // productNumTB
@@ -179,7 +179,7 @@
             this.productNumTB.Location = new System.Drawing.Point(723, 423);
             this.productNumTB.Name = "productNumTB";
             this.productNumTB.Size = new System.Drawing.Size(113, 20);
-            this.productNumTB.TabIndex = 43;
+            this.productNumTB.TabIndex = 41;
             this.productNumTB.TextChanged += new System.EventHandler(this.valueChanged);
             // 
             // label
@@ -199,7 +199,7 @@
             this.productListView.Location = new System.Drawing.Point(12, 102);
             this.productListView.Name = "productListView";
             this.productListView.Size = new System.Drawing.Size(554, 460);
-            this.productListView.TabIndex = 44;
+            this.productListView.TabIndex = 46;
             this.productListView.UseCompatibleStateImageBehavior = false;
             this.productListView.SelectedIndexChanged += new System.EventHandler(this.productListView_SelectedIndexChanged);
             // 

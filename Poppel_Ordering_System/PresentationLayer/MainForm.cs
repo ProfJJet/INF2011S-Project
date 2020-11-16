@@ -60,7 +60,8 @@ namespace Poppel_Ordering_System.PresentationLayer
             Customer cust = custControl.FindByCustNum(SearchTB.Text);
             if (cust is null) 
             { 
-                Console.WriteLine(SearchTB.Text + "Add a message box here");
+                MessageBox.Show("A customer with customer number '" + SearchTB.Text + "' could not be found",
+                    "Customer Not Found");
                 return;
             }
             else { CreateProfileForm(cust); }

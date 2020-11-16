@@ -44,47 +44,6 @@ namespace Poppel_Ordering_System.Entities
             custOrders.Add(order);
             orderDB.DatabaseAdd(order);
         }
-
-        //public void EditOrder(Order o, OrderChangeType type)
-        //{
-        //    int ordInd = FindOrderIndex(o); //index of order in Collection orders
-        //    int itemInd = 0; //initiate item index in Collection items
-
-        //    //If the type of the edit is an item edit
-        //    if (type == OrderChangeType.Item)
-        //    {
-        //        if (custOrders[ordInd].Status < OrderStatus.Invoiced)
-        //        {
-        //            foreach(OrderItem item in o.OrderItems)
-        //            {
-        //                itemDB.DatabaseEdit(item);
-
-        //                itemInd = FindItemIndex(item);
-        //                items[itemInd].Quantity = item.Quantity;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            //TODO: Display "error can't change now"
-        //        }
-        //    }
-        //    else
-        //    {
-        //        orderDB.DatabaseUpdateStatus(o);
-        //        custOrders[ordInd].Status = o.Status;
-        //    }
-        //}
-
-        //public void DeleteOrder(Order o)
-        //{
-        //    itemDB.DatabaseDelete(o);
-        //    orderDB.DatabaseDelete(o);
-        //}
-
-        //public void RemoveItem(Order o, OrderItem i)
-        //{
-        //    itemDB.DatabaseRemoveItem(o, i);
-        //}
         #endregion
 
         #region search methods
