@@ -47,19 +47,6 @@ namespace Poppel_Ordering_System.Entities
         #endregion
 
         #region search methods
-        public int FindOrderIndex(Order order)
-        {
-            int index = 0;
-            bool found = false;
-            while (!found && index < custOrders.Count)
-            {
-                found = (custOrders[index].OrderNum == order.OrderNum);
-                if (!found) { index++; }
-            }
-            if (found) { return index; }
-            else { return -1; }
-        }
-
         public Order FindOrderByID(string IDvalue)
         {
             int position = 0;

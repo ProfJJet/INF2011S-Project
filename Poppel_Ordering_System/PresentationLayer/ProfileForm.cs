@@ -63,7 +63,7 @@ namespace Poppel_Ordering_System.PresentationLayer
                 orderListItem = new ListViewItem();
                 orderListItem.Text = order.OrderNum.ToString();
                 orderListItem.SubItems.Add(order.DatePlaced.ToString("yyyy/MM/dd"));
-                orderListItem.SubItems.Add(order.DateShipped.ToString("yyyy/MM/dd"));
+                orderListItem.SubItems.Add( order.DateShipped == DateTime.MinValue ?  "" : order.DateShipped.ToString("yyyy/MM/dd"));
                 orderListItem.SubItems.Add(order.DeliveryAddress);
                 orderListItem.SubItems.Add(order.Status.ToString());
                 orderListView.Items.Add(orderListItem);

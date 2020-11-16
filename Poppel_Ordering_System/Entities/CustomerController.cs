@@ -22,7 +22,7 @@ namespace Poppel_Ordering_System.Entities
         }
         public int NextID
         {
-            get { return customers.Last().CustomerNum + 1; }
+            get { return custDB.NextInt; }
         }
         #endregion
 
@@ -40,46 +40,9 @@ namespace Poppel_Ordering_System.Entities
             customers.Add(c);
             custDB.DatabaseAdd(c);
         }
-
-        public void EditCustomer(Customer c)
-        {
-            int ind = FindIndex(c);
-
-            customers[ind].Name = c.Name;
-            customers[ind].Email = c.Email;
-            customers[ind].PhoneNum = c.PhoneNum;
-            customers[ind].Address = c.Address;
-            customers[ind].CreditStatus = c.CreditStatus;
-            customers[ind].CreditLimit = c.CreditLimit;
-            customers[ind].Blacklisted = c.Blacklisted;
-
-            custDB.DatabaseEdit(c);
-        }
         #endregion
 
         #region search methods
-        public int FindIndex(Customer customer)
-        {
-            int index = 0;
-            bool found = false;
-            while (!found && index < customers.Count)
-            {
-                found = (customers[index].CustomerNum == customer.CustomerNum);
-                if (!found)
-                {
-                    index++;
-                }
-            }
-            if (found)
-            {
-                return index;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
         public Customer FindByCustNum(string IDvalue)
         {
             int position = 0;

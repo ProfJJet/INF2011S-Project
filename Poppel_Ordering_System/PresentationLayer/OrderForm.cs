@@ -139,9 +139,6 @@ namespace Poppel_Ordering_System.PresentationLayer
         #region Form Methods
         private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Console.WriteLine("Here");
-            Console.WriteLine(submitted);
-            Console.WriteLine(newOrder);
             orderFormClosed = true;
             profileForm.Activate(); 
             if (newOrder && submitted) 

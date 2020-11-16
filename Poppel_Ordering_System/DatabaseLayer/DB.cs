@@ -12,8 +12,12 @@ namespace Poppel_Ordering_System.DatabaseLayer
 {
     public class DB
     {
+        #region Fields
         private string strConn = Settings.Default.PoppelDBConnectionString;
         protected SqlConnection cnMain;
+        #endregion
+
+        #region Constructor
         public DB()
         {
             try
@@ -25,9 +29,10 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 System.Windows.Forms.MessageBox.Show(e.Message, "Error");
                 return;
             }
-
         }
+        #endregion
 
+        #region methods
         protected bool UpdateDataSource(SqlCommand currentCommand)
         {
             bool success;
@@ -44,13 +49,8 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 MessageBox.Show(errObj.Message + " " + errObj.StackTrace);
                 success = false;
             }
-            finally
-            {
-
-            }
             return success;
-
         }
-
+        #endregion
     }
 }

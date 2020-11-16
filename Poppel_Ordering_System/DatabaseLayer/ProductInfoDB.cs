@@ -14,7 +14,6 @@ namespace Poppel_Ordering_System.DatabaseLayer
     class ProductInfoDB:DB
     {
         #region Fields
-        string table1 = "Product";
         private Collection<Product> products;
         private Collection<Product> expiredProducts;
         #endregion
@@ -84,46 +83,12 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
             string strSQL = "UPDATE Product SET Stock = Stock - " + quantity + " WHERE ProductNum = " + productNum;
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
-
         }
         public Collection<Product> RefreshProducts()
         {
             products = new Collection<Product>();
             ReadDataFromTable("SELECT * FROM Product", products);
             return products;
-        }
-        public string GetValueString(Product tempProd)
-        {
-
-            string aStr;
-            aStr = tempProd.ProductNum + ", ' " + tempProd.Name + " ' ," +
-             " ' " + tempProd.Price + " ' ," +
-             " ' " + tempProd.Stock + " ' , " +
-             " ' " + tempProd.Supplier + " ' , " + tempProd.Description + " '";
-            return aStr;
-        }
-
-        public void DatabaseAdd(Product tempProd)
-        {
-
-            string strSQL = "INSERT into Product(ProductNum, Name, Price, Stock, Supplier, Description)" +
-                "VALUES(" + GetValueString(tempProd) + ")";
-
-            UpdateDataSource(new SqlCommand(strSQL, cnMain));
-        }
-
-        public void DatabaseEdit(Product tempProd)
-        {
-            string sqlString = "";
-
-            sqlString = "Update Product Set Name = '" + tempProd.Name.Trim() + "'," +
-                              "Price = '" + tempProd.Price + "'," +
-                              "Stock = '" + tempProd.Stock + "'," +
-                              "Suplier = '" + tempProd.Supplier.Trim() + "'," +
-                              "Description = '" + tempProd.Description.Trim() + "'," +
-                               "WHERE (ProductNum = '" + tempProd.ProductNum + "')";
-
-            UpdateDataSource(new SqlCommand(sqlString, cnMain));
         }
         #endregion
     }

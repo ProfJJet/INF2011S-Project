@@ -14,7 +14,6 @@ namespace Poppel_Ordering_System.DatabaseLayer
     class OrderItemInfoDB:DB
     {
         #region Fields
-        string table1 = "OrderItem";
         private Collection<OrderItem> orderItems;
         private int orderNum;
         #endregion
@@ -27,7 +26,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 orderItems = new Collection<OrderItem>();
 
                 string sql_SELECT = "SELECT * FROM OrderItem WHERE OrderNum="+orderNum;
-                ReadDataFromTable(sql_SELECT, table1);
+                ReadDataFromTable(sql_SELECT);
                 return orderItems; 
             }
         }
@@ -56,7 +55,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region Data Reader
-        public void FillOrderItems(SqlDataReader reader, string dataTable, Collection<OrderItem> orderItems)
+        public void FillOrderItems(SqlDataReader reader, Collection<OrderItem> orderItems)
         {
             OrderItem orderItem;
             while (reader.Read())
@@ -70,7 +69,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
             }
         }
 
-        private string ReadDataFromTable(string selectString, string table)
+        private string ReadDataFromTable(string selectString)
         {
             SqlDataReader reader;
             SqlCommand command;
@@ -81,7 +80,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 cnMain.Open();
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
-                if (reader.HasRows) { FillOrderItems(reader, table, orderItems); }
+                if (reader.HasRows) { FillOrderItems(reader, orderItems); }
                 reader.Close();
                 cnMain.Close();
                 return "success";
@@ -92,27 +91,20 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region CRUD methods
-        public string GetValueString(OrderItem tempItem)
+        public void DatabaseAdd(OrderItem tempItem)
         {
-            return tempItem.OrderItemNum + ", "+ 
-                tempItem.OrderNum + ", " + 
-                tempItem.ProductNum + ", " + 
-                tempItem.Quantity;
-        }
 
+            string strSQL = "INSERT into OrderItem(OrderItemNum, OrderNum, ProductNum, Quantity)" +
+                            "VALUES(" + tempItem.OrderItemNum + ", "+ tempItem.OrderNum + ", " +
+                            tempItem.ProductNum + ", " + tempItem.Quantity + ")";
+
+            UpdateDataSource(new SqlCommand(strSQL, cnMain));
+        }
         public void DeleteOrder(int orderNum)
         {
             string strSQL = "DELETE FROM OrderItem WHERE OrderNum = " + orderNum;
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
             strSQL = "DELETE FROM Orders WHERE OrderNum = " + orderNum;
-            UpdateDataSource(new SqlCommand(strSQL, cnMain));
-        }
-        public void DatabaseAdd(OrderItem tempItem)
-        {
-
-            string strSQL = "INSERT into OrderItem(OrderItemNum, OrderNum, ProductNum, Quantity)" +
-                "VALUES(" + GetValueString(tempItem) + ")";
-
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
         }
         #endregion

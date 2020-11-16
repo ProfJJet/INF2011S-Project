@@ -37,52 +37,12 @@ namespace Poppel_Ordering_System.Entities
         #endregion
 
         #region CRUD methods
-        public void Addproduct(Product p)
-        {
-            products.Add(p);
-            productDB.DatabaseAdd(p);
-        }
-
-        public void EditProduct(Product p)
-        {
-            int ind = FindIndex(p);
-
-            products[ind].Name = p.Name;
-            products[ind].Price = p.Price;
-            products[ind].Stock = p.Stock;
-            products[ind].Supplier = p.Supplier;
-            products[ind].Description = p.Description;
-
-            productDB.DatabaseEdit(p);
-        }
         public void Reserve(int productNum, int quantity) { productDB.Reserve(productNum, quantity); }
         public void Unreserve(int productNum, int quantity) { productDB.Reserve(productNum, quantity*(-1)); }
         public void Refresh() { products = productDB.RefreshProducts(); }
         #endregion
 
         #region search methods
-        public int FindIndex(Product product)
-        {
-            int index = 0;
-            bool found = false;
-            while (!found && index < products.Count)
-            {
-                found = (products[index].ProductNum == product.ProductNum);
-                if (!found)
-                {
-                    index++;
-                }
-            }
-            if (found)
-            {
-                return index;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
         public Product FindByID(int productNum)
         {
             int position = 0;

@@ -83,8 +83,5 @@ namespace Poppel_Ordering_System.Entities
         }
         #endregion
 
-        #region Methods
-            
-        #endregion
     }
 }

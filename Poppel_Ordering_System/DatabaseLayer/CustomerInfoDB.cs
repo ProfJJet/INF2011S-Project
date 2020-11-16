@@ -14,7 +14,6 @@ namespace Poppel_Ordering_System.DatabaseLayer
     class CustomerInfoDB:DB
     {
         #region Fields
-        string table1 = "Customer";
         string sql_SELECT1 = "SELECT * FROM Customer";
         private Collection<Customer> customers;
         #endregion
@@ -24,18 +23,33 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
             get { return customers; }
         }
+        public int NextInt
+        {
+            get 
+            { 
+                SqlCommand command = new SqlCommand("SELECT MAX(CustomerNum) FROM Customer", cnMain);
+                cnMain.Open();
+                command.CommandType = CommandType.Text;
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                int max = reader.GetInt32(0);
+                reader.Close();
+                cnMain.Close();
+                return max + 1;
+            }
+        }
         #endregion
 
         #region Constructor
         public CustomerInfoDB(): base()
         {
             customers = new Collection<Customer>();
-            ReadDataFromTable(sql_SELECT1, table1);
+            ReadDataFromTable(sql_SELECT1);
         }
         #endregion
 
         #region Data Reader
-        public void FillCustomers(SqlDataReader reader, string dataTable, Collection<Customer> customers)
+        public void FillCustomers(SqlDataReader reader, Collection<Customer> customers)
         {
             Customer customer;
             while (reader.Read())
@@ -53,7 +67,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
             }
         }
 
-        private string ReadDataFromTable(string selectString, string table)
+        private string ReadDataFromTable(string selectString)
         {
             SqlDataReader reader;
             SqlCommand command;
@@ -64,7 +78,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 cnMain.Open();
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
-                if (reader.HasRows) { FillCustomers(reader, table, customers); }
+                if (reader.HasRows) { FillCustomers(reader, customers); }
                 reader.Close();
                 cnMain.Close();
                 return "success";
@@ -75,42 +89,15 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region CRUD methods
-        public string GetValueString(Customer tempCust)
-        {
-
-            string aStr;
-            aStr = tempCust.CustomerNum +
-                ", '" + tempCust.Name + "', " +
-                " '" + tempCust.Email + "', " +
-                " '" + tempCust.PhoneNum + "', " +
-                " '" + tempCust.Address + " ', " +
-                " '" + tempCust.CreditStatus + "', " +
-                tempCust.CreditLimit + ", " +
-                Convert.ToString(tempCust.Blacklisted ? 1 : 0);
-            return aStr;
-        }
-
         public void DatabaseAdd(Customer tempCust)
         {
+            string values = tempCust.CustomerNum + ", '" + tempCust.Name + "', " + " '" + tempCust.Email + "', " +
+                            " '" + tempCust.PhoneNum + "', " + " '" + tempCust.Address + " ', " + " '" + tempCust.CreditStatus + "', " +
+                            tempCust.CreditLimit + ", " + Convert.ToString(tempCust.Blacklisted ? 1 : 0);
+
             string strSQL = "INSERT INTO Customer (CustomerNum, Name, Email, PhoneNum, Address, CreditStatus, CreditLimit, BlackListed)" +
-                "VALUES ( " + GetValueString(tempCust) + ")";
+                "VALUES ( " + values + ")";
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
-        }
-
-        public void DatabaseEdit(Customer tempCust)
-        {
-            string sqlString = "";
-
-            sqlString = "Update Customer Set Name = '" + tempCust.Name.Trim() + "'," +
-                              "Email = '" + tempCust.Email.Trim() + "'," +
-                              "PhoneNum = '" + tempCust.PhoneNum.Trim() + "'," +
-                              "Address = '" + tempCust.Address.Trim() + "'," +
-                              "CreditStatus = '" + tempCust.CreditStatus.Trim() + "'," +
-                              "CreditLimit = '" + tempCust.CreditLimit + "'," +
-                              "BlackListed = '" + tempCust.Blacklisted + "'," +
-                               "WHERE (CustomerNum = '" + tempCust.CustomerNum + "')";
-
-            UpdateDataSource(new SqlCommand(sqlString, cnMain));
         }
         #endregion
     }

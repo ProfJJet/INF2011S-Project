@@ -14,7 +14,6 @@ namespace Poppel_Ordering_System.DatabaseLayer
     class OrderInfoDB:DB
     {
         #region Fields
-        string table1 = "Orders";
         private Collection<Order> orders;
         private int custNum;
         #endregion
@@ -26,7 +25,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
             { 
                 orders = new Collection<Order>();
                 string sql_SELECT = "SELECT * FROM Orders WHERE CustomerNum="+custNum;
-                ReadDataFromTable(sql_SELECT, table1);
+                ReadDataFromTable(sql_SELECT);
                 return orders;
             }
         }
@@ -36,7 +35,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
             { 
                 orders = new Collection<Order>();
                 string sql_SELECT = "SELECT * FROM Orders";
-                ReadDataFromTable(sql_SELECT, table1);
+                ReadDataFromTable(sql_SELECT);
                 return orders;
             }
         }
@@ -65,7 +64,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region Data Reader
-        public void FillOrders(SqlDataReader reader, string dataTable, Collection<Order> orders)
+        public void FillOrders(SqlDataReader reader, Collection<Order> orders)
         {
             Order order;
             while (reader.Read())
@@ -82,7 +81,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
             }
         }
 
-        private string ReadDataFromTable(string selectString, string table)
+        private string ReadDataFromTable(string selectString)
         {
             SqlDataReader reader;
             SqlCommand command;
@@ -93,62 +92,26 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 cnMain.Open();
                 command.CommandType = CommandType.Text;
                 reader = command.ExecuteReader();
-                if (reader.HasRows) { FillOrders(reader, table, orders); }
+                if (reader.HasRows) { FillOrders(reader, orders); }
                 reader.Close();
                 cnMain.Close();
                 return "success";
             }
             catch (Exception ex) { return (ex.ToString()); }
         }
-
         #endregion
 
         #region CRUD methods
-        public string GetValueString(Order tempOrder)
-        {
-
-            string aStr = tempOrder.OrderNum + ", '" + tempOrder.CustomerNum + "', " +
-             " '" + tempOrder.DatePlaced.ToString("yyyyMMdd") + "', " + " '" + tempOrder.DateShipped.ToString("yyyyMMdd") + "', " +
-             " '" + tempOrder.DeliveryAddress + "', " + " '" + tempOrder.Status +"'" ;
-            return aStr;
-        }
-
         public void DatabaseAdd(Order tempOrder)
         {
 
-            string strSQL = "";
-            strSQL = "INSERT into Orders(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + 
-                "VALUES(" + GetValueString(tempOrder) + ")";
+            string values = tempOrder.OrderNum + ", '" + tempOrder.CustomerNum + "', " +
+             " '" + tempOrder.DatePlaced.ToString("yyyyMMdd") + "', " + " '" + tempOrder.DateShipped.ToString("yyyyMMdd") + "', " +
+             " '" + tempOrder.DeliveryAddress + "', " + " '" + tempOrder.Status +"'" ;
+            string strSQL = "INSERT into Orders(OrderNum, CustomerNum, DatePlace, DateShipped, DeliveryAddress, Status)" + 
+                "VALUES(" + values + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
-        }
-
-        public void DatabaseUpdateStatus(Order tempOrder)
-        {
-            string sqlString = "";
-
-            sqlString = "Update Order Set Status = '" + tempOrder.Status + "'," +
-                                   "WHERE (OrderNum = '" + tempOrder.OrderNum + "')";
-             
-            UpdateDataSource(new SqlCommand(sqlString, cnMain));
-        }
-
-        public void DatabaseDelete(Order tempOrder)
-        {
-            string sqlStr = "DELETE FROM Order WHERE OrderNum = '" + tempOrder.OrderNum + "'"; //delete from table Order
-
-            UpdateDataSource(new SqlCommand(sqlStr, cnMain));
-        }
-        #endregion
-
-        #region Methods
-        public Collection<Order> getCustomerOrders(Customer c)
-        {
-            String sql_GetCustOrders = "SELECT * FROM Order WHERE CustomerNum = " + c.CustomerNum + "";
-
-            ReadDataFromTable(sql_GetCustOrders, table1);
-
-            return orders;
         }
         #endregion
     }
