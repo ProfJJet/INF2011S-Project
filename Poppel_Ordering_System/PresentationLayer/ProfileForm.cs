@@ -35,6 +35,7 @@ namespace Poppel_Ordering_System.PresentationLayer
         public void PopulateForm(Customer customer)
         {
             cust = customer;
+            orderCont = new OrderController(cust.CustomerNum);
             CustNumLabel.Text = Convert.ToString(cust.CustomerNum);
             CustNameLabel.Text = cust.Name;
             CustEmailLabel.Text = cust.Email;
