@@ -60,21 +60,26 @@ namespace Poppel_Ordering_System.PresentationLayer
         public void displayNewButtons(bool value)
         {
             btnBack.Visible = !value;
+            btnPicking.Visible = !value;
             btnCancel.Visible = value;
             btnPlaceOrder.Visible = value;
             btnAddItem.Visible = value;
 
-            switch (order.Status)
+            try
             {
-                case OrderStatus.New_Order:
-                case OrderStatus.On_Hold:
-                case OrderStatus.Invoiced:
-                    btnCancelOrder.Visible = !value;
-                    break;
-                default:
-                    btnCancelOrder.Visible = false;
-                    break;
+                switch (order.Status)
+                {
+                    case OrderStatus.New_Order:
+                    case OrderStatus.On_Hold:
+                    case OrderStatus.Invoiced:
+                        btnCancelOrder.Visible = !value;
+                        break;
+                    default:
+                        btnCancelOrder.Visible = false;
+                        break;
+                }
             }
+            catch (Exception) { btnCancelOrder.Visible = false; }
         }
         public void setupListView()
         {
@@ -111,12 +116,32 @@ namespace Poppel_Ordering_System.PresentationLayer
             itemListView.Refresh();
             itemListView.GridLines = true;
         }
+        public void DisplayPickingList()
+        {
+            OrderItemController itemCont = new OrderItemController(order.OrderNum);
+            ProductController prodCont = new ProductController();
+            Collection<OrderItem> items = itemCont.AllOrderItems;
+
+            string message = "Product No. \t Qty \t Shelf";
+            foreach (OrderItem item in items)
+            {
+                Product product = prodCont.FindByID(item.ProductNum);
+                if (product != null)
+                {
+                    message += "\n" + product.ProductNum.ToString() +
+                              " \t\t " + item.Quantity.ToString() +
+                              " \t " + product.Shelf.ToString();
+                }
+            }
+            MessageBox.Show(message, "Picking List"); 
+        } 
         #endregion
         #region Form Methods
         private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             orderFormClosed = true;
             profileForm.Activate(); 
+            if (newOrder || submitted) { DisplayPickingList(); }
             
             if (newOrder || !submitted)
             {
@@ -173,6 +198,8 @@ namespace Poppel_Ordering_System.PresentationLayer
                 Close();
             }
         }
+        private void btnPicking_Click(object sender, EventArgs e) { DisplayPickingList(); }
         #endregion
+
     }
 }

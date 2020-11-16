@@ -54,6 +54,7 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 product.Supplier = reader.GetString(4).Trim();
                 product.Description = reader.GetString(5).Trim();
                 product.Expiry = reader.GetDateTime(6);
+                product.Shelf = reader.GetInt32(7);
                 products.Add(product);
             }
         }

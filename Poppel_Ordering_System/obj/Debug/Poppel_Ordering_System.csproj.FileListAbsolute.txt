@@ -39,7 +39,6 @@ C:\Users\User\Documents\GitHub\INF2011S-Project\Poppel_Ordering_System\bin\Debug
 C:\Users\User\Documents\GitHub\INF2011S-Project\Poppel_Ordering_System\bin\Debug\PoppelDB_log.ldf
 C:\Users\jj\Desktop\Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering_System.PresentationLayer.AddItemForm.resources
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\bin\Debug\PoppelDB.mdf
-C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\bin\Debug\PoppelDB_log.ldf
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\bin\Debug\Poppel_Ordering_System.exe.config
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\bin\Debug\Poppel_Ordering_System.exe
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\bin\Debug\Poppel_Ordering_System.pdb
@@ -54,3 +53,4 @@ C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering_System.csproj.CoreCompileInputs.cache
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering_System.exe
 C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\obj\Debug\Poppel_Ordering_System.pdb
+C:\Users\jj\Desktop\INF-Project\Poppel_Ordering_System\bin\Debug\PoppelDB_log.ldf

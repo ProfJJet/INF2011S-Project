@@ -16,6 +16,7 @@ namespace Poppel_Ordering_System.Entities
         private string supplier;
         private string description;
         private DateTime expiry;
+        private int shelf;
         #endregion
 
         #region Product Property Methods
@@ -60,10 +61,15 @@ namespace Poppel_Ordering_System.Entities
             get { return expiry; }
             set { expiry = value; }
         }
+        public int Shelf 
+        {
+            get { return shelf; }
+            set { shelf = value; }
+        }
         #endregion
         
         #region Constructors
-        public Product( int productNum, string name, decimal price, int stock, string supplier, string address, string creditStatus, int creditLimit, string description, DateTime expiry)
+        public Product( int productNum, string name, decimal price, int stock, string supplier, string address, string creditStatus, int creditLimit, string description, DateTime expiry, int shelf)
         {
             this.ProductNum = productNum;
             this.Name = name;
@@ -72,6 +78,7 @@ namespace Poppel_Ordering_System.Entities
             this.Supplier = supplier;
             this.Description = description;
             this.Expiry = expiry;
+            this.Shelf = shelf;
         }
         public Product()
         {
@@ -82,6 +89,7 @@ namespace Poppel_Ordering_System.Entities
             this.Supplier = "";
             this.Description = "";
             this.Expiry = DateTime.MinValue;
+            this.Shelf = 0;
         }
         #endregion
     }

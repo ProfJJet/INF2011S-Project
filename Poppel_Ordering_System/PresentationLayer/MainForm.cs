@@ -58,15 +58,19 @@ namespace Poppel_Ordering_System.PresentationLayer
         }
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            Customer cust = custControl.FindByCustNum(SearchTB.Text);
-            if (cust is null) 
-            { 
-                MessageBox.Show("A customer with customer number '" + SearchTB.Text + "' could not be found",
-                    "Customer Not Found");
-                return;
+            try
+            {
+                Customer cust = custControl.FindByCustNum(SearchTB.Text);
+                if (cust is null)
+                {
+                    MessageBox.Show("A customer with customer number '" + SearchTB.Text + "' could not be found",
+                        "Customer Not Found");
+                    return;
+                }
+                else { CreateProfileForm(cust); }
             }
-            else { CreateProfileForm(cust); }
 
+            catch (System.ArgumentOutOfRangeException) {  MessageBox.Show("Error connecting to Database", "Database Error"); }
         }
 
         private void btnExpired_Click(object sender, EventArgs e)
