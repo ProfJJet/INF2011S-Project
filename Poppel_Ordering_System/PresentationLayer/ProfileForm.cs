@@ -75,7 +75,7 @@ namespace Poppel_Ordering_System.PresentationLayer
         {
             Order order = new Order();
             order.OrderNum = orderCont.NextID;
-            this.CreateOrderForm(cust, order, true);
+            CreateOrderForm(cust, order, true);
         }
         public void CreateOrderForm(Customer cust, Order order, bool newOrder)
         {
@@ -111,11 +111,13 @@ namespace Poppel_Ordering_System.PresentationLayer
 
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-
-        }
-        private void btnViewOrder_Click(object sender, EventArgs e)
-        {
-
+            if (cust.Blacklisted) { Console.Write("TODO: Implement Error Message");
+            } 
+            else
+            {
+                CreateOrderForm(cust);
+                orderListView.Refresh();
+            }
         }
 
         private void orderListView_SelectedIndexChanged(Object sender, EventArgs e)

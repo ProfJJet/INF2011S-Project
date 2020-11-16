@@ -79,9 +79,9 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region CRUD methods
-        public  void Unreserve(int productNum, int quantity)
+        public  void Reserve(int productNum, int quantity)
         {
-            string strSQL = "UPDATE Product SET Stock = Stock + " + quantity + " WHERE ProductNum = " + productNum;
+            string strSQL = "UPDATE Product SET Stock = Stock - " + quantity + " WHERE ProductNum = " + productNum;
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
 
         }

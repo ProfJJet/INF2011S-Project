@@ -245,20 +245,20 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label7.Location = new System.Drawing.Point(650, 503);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 20);
+            this.label7.Size = new System.Drawing.Size(102, 20);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Total:";
+            this.label7.Text = "Total:       R";
             // 
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
             this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.TotalLabel.Location = new System.Drawing.Point(727, 503);
+            this.TotalLabel.Location = new System.Drawing.Point(748, 500);
             this.TotalLabel.Name = "TotalLabel";
-            this.TotalLabel.Size = new System.Drawing.Size(71, 20);
+            this.TotalLabel.Size = new System.Drawing.Size(59, 20);
             this.TotalLabel.TabIndex = 6;
-            this.TotalLabel.Text = "R----------";
+            this.TotalLabel.Text = "----------";
             // 
             // btnCancelOrder
             // 
@@ -278,6 +278,7 @@
             this.btnPlaceOrder.TabIndex = 30;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
+            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
             // btnCancel
             // 
@@ -287,7 +288,7 @@
             this.btnCancel.TabIndex = 31;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancelOrder_Click);
             // 
             // btnAddItem
             // 

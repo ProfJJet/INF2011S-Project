@@ -13,6 +13,7 @@ namespace Poppel_Ordering_System.Entities
         #region Properties
         OrderInfoDB orderDB;
         private Collection<Order> custOrders;
+        private Collection<Order> allOrders;
         int custNum;
         #endregion
 
@@ -23,7 +24,7 @@ namespace Poppel_Ordering_System.Entities
         }
         public int NextID
         {
-            get { return custOrders.Last().OrderNum + 1; }
+            get { return allOrders.Last().OrderNum + 1; }
         }
         #endregion
 
@@ -33,20 +34,16 @@ namespace Poppel_Ordering_System.Entities
             custNum = customerNum;
             orderDB = new OrderInfoDB(custNum);
             custOrders = orderDB.AllCustOrders;
+            allOrders = orderDB.AllOrders;
         }
         #endregion
 
         #region CRUD methods
-        //public void AddOrder(Order o)
-        //{
-        //    custOrders.Add(o);
-        //    orderDB.DatabaseAdd(o);
-
-        //    foreach (OrderItem item in o.OrderItems)
-        //    {
-        //        itemDB.DatabaseAdd(o, item);
-        //    }
-        //}
+        public void AddOrder(Order order)
+        {
+            custOrders.Add(order);
+            orderDB.DatabaseAdd(order);
+        }
 
         //public void EditOrder(Order o, OrderChangeType type)
         //{
@@ -98,19 +95,10 @@ namespace Poppel_Ordering_System.Entities
             while (!found && index < custOrders.Count)
             {
                 found = (custOrders[index].OrderNum == order.OrderNum);
-                if (!found)
-                {
-                    index++;
-                }
+                if (!found) { index++; }
             }
-            if (found)
-            {
-                return index;
-            }
-            else
-            {
-                return -1;
-            }
+            if (found) { return index; }
+            else { return -1; }
         }
 
         public Order FindOrderByID(string IDvalue)
@@ -120,19 +108,10 @@ namespace Poppel_Ordering_System.Entities
             while (!found && position < custOrders.Count)
             {
                 found = (IDvalue == custOrders[position].OrderNum.ToString());
-                if (!found)
-                {
-                    position += 1;
-                }
+                if (!found) { position += 1; }
             }
-            if (found)
-            {
-                return custOrders[position];
-            }
-            else
-            {
-                return null;
-            }
+            if (found) { return custOrders[position]; }
+            else { return null; }
         }
 
         #endregion

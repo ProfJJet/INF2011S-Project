@@ -25,8 +25,17 @@ namespace Poppel_Ordering_System.DatabaseLayer
             get 
             { 
                 orders = new Collection<Order>();
-
                 string sql_SELECT = "SELECT * FROM Orders WHERE CustomerNum="+custNum;
+                ReadDataFromTable(sql_SELECT, table1);
+                return orders;
+            }
+        }
+        public Collection<Order> AllOrders
+        {
+            get 
+            { 
+                orders = new Collection<Order>();
+                string sql_SELECT = "SELECT * FROM Orders";
                 ReadDataFromTable(sql_SELECT, table1);
                 return orders;
             }
@@ -84,8 +93,8 @@ namespace Poppel_Ordering_System.DatabaseLayer
         {
 
             string aStr = tempOrder.OrderNum + ", '" + tempOrder.CustomerNum + "', " +
-             " '" + tempOrder.DatePlaced + "', " + " '" + tempOrder.DateShipped + "', " +
-             " '" + tempOrder.DeliveryAddress + "', " + " '" + tempOrder.Status ;
+             " '" + tempOrder.DatePlaced.ToString("yyyyMMdd") + "', " + " '" + tempOrder.DateShipped.ToString("yyyyMMdd") + "', " +
+             " '" + tempOrder.DeliveryAddress + "', " + " '" + tempOrder.Status +"'" ;
             return aStr;
         }
 

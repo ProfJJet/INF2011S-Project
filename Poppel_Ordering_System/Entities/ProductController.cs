@@ -49,7 +49,8 @@ namespace Poppel_Ordering_System.Entities
 
             productDB.DatabaseEdit(p);
         }
-        public void Unreserve(int productNum, int quantity) { productDB.Unreserve(productNum, quantity); }
+        public void Reserve(int productNum, int quantity) { productDB.Reserve(productNum, quantity); }
+        public void Unreserve(int productNum, int quantity) { productDB.Reserve(productNum, quantity*(-1)); }
         public void Refresh() { products = productDB.RefreshProducts(); }
         #endregion
 

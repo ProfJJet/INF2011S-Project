@@ -16,7 +16,6 @@ namespace Poppel_Ordering_System.Entities
         private string supplier;
         private string description;
         private DateTime expiry;
-        // for now we'll skip th image - can always add later if we have excess time
         #endregion
 
         #region Product Property Methods

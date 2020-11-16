@@ -21,6 +21,10 @@ namespace Poppel_Ordering_System.Entities
         {
             get { return orderItems; }
         }
+        public int NextID
+        {
+            get { return itemDB.NextInt; }
+        }
         #endregion
 
         #region Constructor
@@ -32,6 +36,9 @@ namespace Poppel_Ordering_System.Entities
         }
         #endregion
 
+        #region CRUD methods
+        public void AddItem(OrderItem order) { itemDB.DatabaseAdd(order); }
+        #endregion
         #region search methods
         public int FindItemIndex(OrderItem item)
         {

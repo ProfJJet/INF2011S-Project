@@ -31,6 +31,21 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 return orderItems; 
             }
         }
+        public int NextInt
+        {
+            get 
+            { 
+                SqlCommand command = new SqlCommand("SELECT MAX(OrderItemNum) FROM OrderItem", cnMain);
+                cnMain.Open();
+                command.CommandType = CommandType.Text;
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                int max = reader.GetInt32(0);
+                reader.Close();
+                cnMain.Close();
+                return max + 1;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -77,12 +92,12 @@ namespace Poppel_Ordering_System.DatabaseLayer
         #endregion
 
         #region CRUD methods
-        public string GetValueString(Order tempOrder, OrderItem tempItem)
+        public string GetValueString(OrderItem tempItem)
         {
-
-            string aStr = tempItem.OrderItemNum + ", ' "+ tempOrder.OrderNum + ", '" + tempItem.ProductNum + " ' ," +
-             " ' " + tempItem.Quantity + "'";
-            return aStr;
+            return tempItem.OrderItemNum + ", "+ 
+                tempItem.OrderNum + ", " + 
+                tempItem.ProductNum + ", " + 
+                tempItem.Quantity;
         }
 
         public void DeleteOrder(int orderNum)
@@ -92,12 +107,11 @@ namespace Poppel_Ordering_System.DatabaseLayer
             strSQL = "DELETE FROM Orders WHERE OrderNum = " + orderNum;
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
         }
-        public void DatabaseAdd(Order tempOrder, OrderItem tempItem)
+        public void DatabaseAdd(OrderItem tempItem)
         {
 
-            string strSQL = "";
-            strSQL = "INSERT into OrderItem(OrderItemNum, OrderNum, ProductNum, Quantity)" +
-                "VALUES(" + GetValueString(tempOrder, tempItem) + ")";
+            string strSQL = "INSERT into OrderItem(OrderItemNum, OrderNum, ProductNum, Quantity)" +
+                "VALUES(" + GetValueString(tempItem) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));
         }

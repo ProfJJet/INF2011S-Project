@@ -17,7 +17,9 @@ namespace Poppel_Ordering_System.PresentationLayer
         #region Fields
         public bool orderFormClosed = false;
         public bool newOrder;
+        public bool submitted = false;
         private ProfileForm profileForm;
+        private AddItemForm itemForm;
         private Customer cust;
         private Order order;
         MainForm mainForm;
@@ -43,7 +45,17 @@ namespace Poppel_Ordering_System.PresentationLayer
             CustNameLabel.Text = cust.Name;
             CustAddressLabel.Text = cust.Address;
             CustPhoneLabel.Text = cust.PhoneNum;
-
+            if (newOrder) { AddOrderToDB(); }
+        }
+        public void AddOrderToDB()
+        {
+            Order temp = new Order();
+            temp.OrderNum = order.OrderNum;
+            temp.CustomerNum = cust.CustomerNum;
+            temp.DatePlaced = DateTime.Now;
+            temp.DeliveryAddress = cust.Address;
+            temp.Status = OrderStatus.New_Order;
+            profileForm.orderCont.AddOrder(temp);
         }
         public void displayNewButtons(bool value)
         {
@@ -66,6 +78,7 @@ namespace Poppel_Ordering_System.PresentationLayer
         }
         public void setupListView()
         {
+            submitted = false;
             ListViewItem itemListItem;
             OrderItemController itemCont = new OrderItemController(order.OrderNum);
             ProductController prodCont = new ProductController();
@@ -103,6 +116,19 @@ namespace Poppel_Ordering_System.PresentationLayer
         private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             orderFormClosed = true;
+            profileForm.Activate(); 
+            
+            if (newOrder || !submitted)
+            {
+                OrderItemController itemCont = new OrderItemController(order.OrderNum);
+                ProductController prodCont = new ProductController();
+                Collection<OrderItem> items = itemCont.AllOrderItems;
+
+                foreach (OrderItem item in items) { prodCont.Unreserve(item.ProductNum, item.Quantity); }
+                prodCont.Refresh();
+                itemCont.DeleteOrder();
+                profileForm.setupListView();
+            }
         }
         private void OrderForm_Load(object sender, EventArgs e)
         {
@@ -116,28 +142,37 @@ namespace Poppel_Ordering_System.PresentationLayer
             itemListView.View = View.Details;
             setupListView();
         }
-        private void btnBack_Click(object sender, EventArgs e) { Close(); profileForm.Activate(); }
-        #endregion
+        private void btnBack_Click(object sender, EventArgs e) { Close(); }
 
-        private void btnCancel_Click(object sender, EventArgs e) { Close(); profileForm.Activate(); }
+        private void btnCancel_Click(object sender, EventArgs e) { Close(); }
+        private void btnCancelOrder_Click(object sender, EventArgs e) { Close(); ; }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            //TODO: Add functionality
-        }
-
-        private void btnCancelOrder_Click(object sender, EventArgs e)
-        {
             OrderItemController itemCont = new OrderItemController(order.OrderNum);
-            ProductController prodCont = new ProductController();
-            Collection<OrderItem> items = itemCont.AllOrderItems;
-
-            foreach (OrderItem item in items) { prodCont.Unreserve(item.ProductNum, item.Quantity); }
-            prodCont.Refresh();
-            itemCont.DeleteOrder();
-            Close();
-            profileForm.setupListView();
-            profileForm.Activate();
+            OrderItem item = new OrderItem();
+            item.OrderItemNum = itemCont.NextID;
+            if (itemForm == null || itemForm.itemFormClosed)
+            {
+                itemForm = new AddItemForm(order, item, this);
+                itemForm.MdiParent = this.mainForm;
+                itemForm.StartPosition = FormStartPosition.CenterScreen;
+                itemForm.Show();
+            }
+            else { itemForm.PopulateForm(order, item, this); }
+            itemListView.Refresh();
         }
+
+
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
+            if (TotalLabel.Text == "0") { Console.WriteLine("TODO: Message saying items needed"); }
+            else
+            {
+                submitted = true;
+                Close();
+            }
+        }
+        #endregion
     }
 }
