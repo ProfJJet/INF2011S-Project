@@ -24,7 +24,7 @@ namespace Poppel_Ordering_System.Entities
         }
         public int NextID
         {
-            get { return allOrders.Last().OrderNum + 1; }
+            get { return orderDB.NextInt; }
         }
         #endregion
 

@@ -40,6 +40,21 @@ namespace Poppel_Ordering_System.DatabaseLayer
                 return orders;
             }
         }
+        public int NextInt
+        {
+            get 
+            { 
+                SqlCommand command = new SqlCommand("SELECT MAX(OrderNum) FROM Orders", cnMain);
+                cnMain.Open();
+                command.CommandType = CommandType.Text;
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                int max = reader.GetInt32(0);
+                reader.Close();
+                cnMain.Close();
+                return max + 1;
+            }
+        }
         #endregion
 
         #region Constructor

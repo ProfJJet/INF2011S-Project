@@ -139,11 +139,18 @@ namespace Poppel_Ordering_System.PresentationLayer
         #region Form Methods
         private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Console.WriteLine("Here");
+            Console.WriteLine(submitted);
+            Console.WriteLine(newOrder);
             orderFormClosed = true;
             profileForm.Activate(); 
-            if (newOrder || submitted) { DisplayPickingList(); }
+            if (newOrder && submitted) 
+            {
+                DisplayPickingList();
+                profileForm.setupListView();
+            }
             
-            if (newOrder || !submitted)
+            if (newOrder && !submitted)
             {
                 OrderItemController itemCont = new OrderItemController(order.OrderNum);
                 ProductController prodCont = new ProductController();
@@ -154,6 +161,7 @@ namespace Poppel_Ordering_System.PresentationLayer
                 itemCont.DeleteOrder();
                 profileForm.setupListView();
             }
+            submitted = false;
         }
         private void OrderForm_Load(object sender, EventArgs e)
         {
