@@ -13,12 +13,17 @@ namespace Poppel_Ordering_System.Entities
         #region Properties
         ProductInfoDB productDB;
         private Collection<Product> products;
+        private Collection<Product> expiredProducts;
         #endregion
 
         #region Property methods
         public Collection<Product> AllProducts
         {
             get { return products; }
+        }
+        public Collection<Product> ExpiredProducts
+        {
+            get { return expiredProducts; }
         }
         #endregion
 
@@ -27,6 +32,7 @@ namespace Poppel_Ordering_System.Entities
         {
             productDB = new ProductInfoDB();
             products = productDB.AllProducts;
+            expiredProducts = productDB.ExpiredProducts;
         }
         #endregion
 

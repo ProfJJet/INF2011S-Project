@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -67,7 +68,25 @@ namespace Poppel_Ordering_System.PresentationLayer
             else { CreateProfileForm(cust); }
 
         }
-        #endregion
 
+        private void btnExpired_Click(object sender, EventArgs e)
+        {
+            ProductController prodCont = new ProductController();
+            Collection<Product> products = prodCont.ExpiredProducts;
+            string message;
+            if (products.Count == 0) { message = "No Expired Products"; }
+            else
+            {
+                message = "No. \tExpiry Date\n";
+                foreach (Product product in products)
+                {
+                    message += product.ProductNum + " \t" +
+                        product.Expiry.ToString("yyyy/MM/dd") + " \n";
+                }
+            }
+            MessageBox.Show(message, "Expired Products");
+
+        }
+        #endregion
     }
 }

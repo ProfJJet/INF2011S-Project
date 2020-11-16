@@ -33,6 +33,7 @@
             this.SearchTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnExpired = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SearchBtn
@@ -81,11 +82,23 @@
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // btnExpired
+            // 
+            this.btnExpired.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExpired.Location = new System.Drawing.Point(600, 2);
+            this.btnExpired.Name = "btnExpired";
+            this.btnExpired.Size = new System.Drawing.Size(162, 20);
+            this.btnExpired.TabIndex = 14;
+            this.btnExpired.Text = "Expired Products";
+            this.btnExpired.UseVisualStyleBackColor = true;
+            this.btnExpired.Click += new System.EventHandler(this.btnExpired_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 538);
+            this.Controls.Add(this.btnExpired);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddCust);
             this.Controls.Add(this.SearchBtn);
@@ -106,5 +119,6 @@
         private System.Windows.Forms.TextBox SearchTB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button btnExpired;
     }
 }
